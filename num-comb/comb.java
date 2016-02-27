@@ -1,0 +1,34 @@
+//////////////////////////////
+// comb.java
+public class comb {
+    public static int newGap(int gap){
+        gap /= 1.3;
+        if(gap == 9 || gap == 10) return 11;
+        if(gap < 1) return 1;
+        return gap;
+    }
+    public static void combSort(double a[], int len){
+        int gap = len;
+        double temp;
+        boolean swapped;
+        do {
+            swapped = false;
+            gap = newGap(gap);
+            for(int i=0; i < len-gap; ++i) {
+                if(a[i] > a[i+gap]) {
+                    swapped = true;
+                    temp = a[i];
+                    a[i] = a[i+gap];
+                    a[i+gap] = temp;
+                }
+            }
+        } while(gap > 1 || swapped);
+    }
+    public static final int N = 10000000;
+    public static void main(String[] args) {
+        double[] arr = new double[N];
+        for(int z=0;z<N;++z) arr[z] = N-z;    
+        combSort(arr,N);
+        for(int z=1;z<N;++z) if(arr[z]<arr[z-1]) System.out.print("!");
+    }   
+}
