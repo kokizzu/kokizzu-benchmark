@@ -16,7 +16,7 @@ for n in 10000.40 10000.4000 100.4000000; do
   bytes
   before=$last
   echo BENCHMARK $n
-  time ./client -a 127.0.0.1:15001 -c $count -p $payload
+  time ./client -a 127.0.0.1 -o 15001 -c $count -p $payload
   bytes
   after=$last
   echo $(ruby -e "p ($after-$before)/$count") bytes/rpc 
