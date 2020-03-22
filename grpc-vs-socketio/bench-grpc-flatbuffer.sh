@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
-alias time='/usr/bin/time -f "\nCPU: %Us\tReal: %es\tRAM: %M KB"'
+alias time='/usr/bin/time -f "\nCPU: %U sec\tReal: %e sec\tRAM: %M KB"'
 function bytes() {
-  return `cat /proc/net/dev | grep lo | xargs | cut -d ' ' -f 2`
+  last=$(cat /proc/net/dev | grep lo | xargs | cut -d ' ' -f 2)
 }
 
 killall server
@@ -10,16 +10,16 @@ cd flatbuffer
 cd client && go build
 cd ../server && go build && time ./server &
 cd ../client
-for payload in 128 1024 32768; do
-  for count in 10000; do
-    bytes
-    before=$?
-    echo BENCHMARK $count x $payload
-    time ./client -a 127.0.0.1:15001 -c $count -p $payload
-    bytes
-    after=$?
-    echo `expr $after - $before` bytes 
-    echo 
-  done
+for n in 10000.40 10000.4000 100.4000000; do
+  count=$(echo $n | cut -d '.' -f 1)
+  payload=$(echo $n | cut -d '.' -f 2)
+  bytes
+  before=$last
+  echo BENCHMARK $n
+  time ./client -a 127.0.0.1:15001 -c $count -p $payload
+  bytes
+  after=$last
+  echo $(ruby -e "p ($after-$before)/$count") bytes/rpc 
+  echo 
 done 
 killall server
