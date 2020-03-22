@@ -1,0 +1,11 @@
+namespace users;
+
+rpc_service UserService {
+    Add(AddRequest):AddResponse(streaming: "none");
+}
+
+table AddRequest {
+  name:string;
+}
+
+table AddResponse {}
