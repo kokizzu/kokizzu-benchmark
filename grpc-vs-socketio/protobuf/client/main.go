@@ -4,7 +4,9 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"sync"
+	"time"
 
 	pb "kokizzu-benchmark/grpc-vs-socketio/protobuf/proto/helloworld"
 
@@ -37,6 +39,8 @@ func do(wg *sync.WaitGroup) {
 	}
 	s := string(data)
 
+	start := time.Now()
+
 	i := 0
 	for {
 		i++
@@ -49,6 +53,9 @@ func do(wg *sync.WaitGroup) {
 			break
 		}
 	}
+
+	elapsed := float64(time.Since(start).Nanoseconds()) / 1000000.0
+	fmt.Printf("rpc average duration: %.2f ms\n", elapsed/float64(i))
 }
 
 func main() {

@@ -2,10 +2,12 @@
 package main
 
 import (
-	"kokizzu-benchmark/grpc-vs-socketio/flatbuffer/schema/users"
 	"context"
 	"flag"
+	"fmt"
+	"kokizzu-benchmark/grpc-vs-socketio/flatbuffer/schema/users"
 	"sync"
+	"time"
 
 	flatbuffers "github.com/google/flatbuffers/go"
 	"google.golang.org/grpc"
@@ -43,6 +45,8 @@ func do(wg *sync.WaitGroup) {
 	users.AddRequestAddName(b, name)
 	b.Finish(users.AddRequestEnd(b))
 
+	start := time.Now()
+
 	i := 0
 	for {
 		i++
@@ -55,6 +59,9 @@ func do(wg *sync.WaitGroup) {
 			break
 		}
 	}
+
+	elapsed := float64(time.Since(start).Nanoseconds()) / 1000000.0
+	fmt.Printf("rpc average duration: %.2f ms\n", elapsed/float64(i))
 }
 
 func main() {
