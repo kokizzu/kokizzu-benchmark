@@ -55,7 +55,7 @@ func do(wg *sync.WaitGroup) {
 	}
 
 	elapsed := float64(time.Since(start).Nanoseconds()) / 1000000.0
-	fmt.Printf("rpc average duration: %.2f ms\n", elapsed/float64(i))
+	fmt.Printf("RPC average duration: %.3f ms\n", elapsed/float64(i))
 }
 
 func main() {
