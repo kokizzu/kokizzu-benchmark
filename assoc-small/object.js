@@ -1,7 +1,7 @@
 // object.js
 if(typeof print == 'undefined') print = function(){};
 if(typeof console == 'undefined') console = {log:print};
-var MAX_DATA = 120000;
+var MAX_DATA = 1230000;
 var i2ch = ['0','1','2','3','4','5','6','7','8','9','a','B','c','D','e','F'];
 function get_first_digit(d) {
 	while(d > 10) d /= 10;

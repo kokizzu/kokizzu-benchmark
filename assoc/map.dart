@@ -5,7 +5,7 @@ int get_first_digit(d) {
 	while(d > 10) d /= 10;
 	return d.toInt();
 }
-string to_rhex(v) {
+String to_rhex(v) {
 	var hex = '';
 	v = v.toInt();
 	while(v>0) {
@@ -23,14 +23,14 @@ bool add_or_inc(m,key,set,inc) {
 	return true;
 }
 void main() {
-	var m = {};
+	var m = new Map();
 	int dup1 = 0, dup2 = 0, dup3 = 0;
 	for(var z=MAX_DATA;z>0;--z) {
 		int val2 = MAX_DATA-z;
 		int val3 = MAX_DATA*2-z;
-		string key1 = z.toString();
-		string key2 = val2.toString();
-		string key3 = to_rhex(val3);
+		String key1 = z.toString();
+		String key2 = val2.toString();
+		String key3 = to_rhex(val3);
 		if(add_or_inc(m,key1,z,val2)) ++dup1;
 		if(add_or_inc(m,key2,val2,val3)) ++dup2;
 		if(add_or_inc(m,key3,val3,z)) ++dup3;

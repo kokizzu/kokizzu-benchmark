@@ -1,5 +1,5 @@
 <?php // assoc.php
-const MAX_DATA = 120000;
+const MAX_DATA = 1230000;
 $i2ch = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'B', 'c', 'D', 'e', 'F');
 function get_first_digit($d) {
 	while($d > 10) $d /= 10;

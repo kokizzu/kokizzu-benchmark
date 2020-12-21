@@ -1,5 +1,5 @@
 -- table.lua
-MAX_DATA = 120000
+MAX_DATA = 1230000
 i2ch = {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'B', 'c', 'D', 'e', 'F'}
 i2ch[0] = '0'
 get_first_digit = function(d)

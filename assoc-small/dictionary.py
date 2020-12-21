@@ -1,5 +1,5 @@
 # dictionary.py
-MAX_DATA = 120000
+MAX_DATA = 1230000
 I2ch = ['0','1','2','3','4','5','6','7','8','9','a','B','c','D','e','F']
 def get_first_digit(d):
 	while(d > 10):

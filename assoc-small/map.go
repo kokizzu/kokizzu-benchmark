@@ -2,14 +2,14 @@
 package main
 
 import (
-	`bytes`
-	`fmt`
-	`strconv`
+	"bytes"
+	"fmt"
+	"strconv"
 )
 
 type MSD map[string]float64
 
-const MAX_DATA = 120000
+const MAX_DATA = 1230000
 
 var i2ch []byte
 
