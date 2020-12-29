@@ -4,7 +4,7 @@ I2ch     = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'B', 'c', 'D'
 
 def get_first_digit(d)
   while d > 10
-    d =d // 10
+    d = d // 10
   end
   return d
 end
@@ -16,20 +16,19 @@ def to_rhex(v : Int32)
       v = v // 16
     end
   end
-  #puts hex
   return hex
 end
 
 def add_or_inc(m, key, set, inc)
   if m.has_key? key
-    m[key]+=inc
+    m[key] += inc
     return true
   end
   m[key] = set
   return false
 end
 
-m = {} of String => Int32 
+m = {} of String => Int32
 dup1, dup2, dup3 = 0, 0, 0
 MAX_DATA.downto(1) do |z|
   val2 = MAX_DATA - z
