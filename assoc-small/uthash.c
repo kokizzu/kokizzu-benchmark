@@ -1,10 +1,10 @@
-// map.go
+// uthash.c
 #include <string.h>  /* strcpy */
 #include <stdlib.h>  /* malloc */
 #include <stdio.h>   /* printf */
 #include "uthash.h"
 
-const MAX_DATA = 1230000;
+const int MAX_DATA = 1230000;
 
 struct kv {
 	char *key;
