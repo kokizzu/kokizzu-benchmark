@@ -2,6 +2,7 @@
 #include <string.h>  /* strcpy */
 #include <stdlib.h>  /* malloc */
 #include <stdio.h>   /* printf */
+#include <assert.h>
 #include "uthash.h"
 
 const int MAX_DATA = 1230000;
@@ -22,6 +23,7 @@ int get_first_digit(double d) {
 }
 char* to_rhex(int v) {
 	char* hex = malloc(sizeof(char)*9); // because INT_MAX can be divided by 16 maximum 8 times
+	assert(hex != NULL);
 	memset(hex,0,9);
 	int ctr = 0;
 	while(v > 0) {
@@ -34,6 +36,7 @@ char* to_rhex(int v) {
 char* to_str(int v) {
 	int len = snprintf(NULL,0,"%d",v);
 	char *res = malloc(len+1);
+	assert(res != NULL);
 	snprintf(res, len+1, "%d", v);  
 	return res;
 }
@@ -43,9 +46,11 @@ int set_or_inc(struct kv** m, char* key, int set, int inc, int *ctr) {
 	HASH_FIND_STR(*m, key, item);
 	if(!item) {
 		item = malloc(sizeof(*item));
+		assert(item != NULL);
 		item->key = key;
 		item->val = (double)(set);
-		HASH_ADD_KEYPTR(hh, *m, item->key, strlen(item->key), item) ;
+		//HASH_ADD_KEYPTR(hh, *m, item->key, strlen(item->key), item) ;
+		HASH_ADD_STR(*m, key, item);
 		return 0;
 	} else {
 		item->val += (double)(inc);
