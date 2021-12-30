@@ -27,7 +27,7 @@ void combSort(a){
 }
 const N = 10000000;
 void main() {    
-    var arr = new List(N);
+    var arr = new List.filled(N,'');
     for(var z=0;z<N;++z) arr[z] = (N-z).toString();    
     combSort(arr);
     for(var z=1;z<N;++z) if(arr[z].compareTo(arr[z-1]) < 0) print("!");

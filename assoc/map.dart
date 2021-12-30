@@ -36,7 +36,7 @@ void main() {
 		if(add_or_inc(m,key3,val3,z)) ++dup3;
 	}
 	print('$dup1 $dup2 $dup3');
-	int total = 0, verify = 0, count = 0;
+	num total = 0, verify = 0, count = 0;
 	void iterate(key,val) {
 		total += get_first_digit(val);
 		verify += key.length;
