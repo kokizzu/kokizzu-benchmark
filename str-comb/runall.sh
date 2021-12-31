@@ -63,6 +63,11 @@ time java scomb.java
 time java scomb.java
 time java scomb.java
 
+julia --version
+time julia scomb.jl
+time julia scomb.jl
+time julia scomb.jl
+
 node --version
 time node scomb.js
 time node scomb.js
