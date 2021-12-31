@@ -63,6 +63,11 @@ time java comb.java
 time java comb.java
 time java comb.java
 
+julia --version
+time julia comb.jl
+time julia comb.jl
+time julia comb.jl
+
 node --version
 time node comb.js
 time node comb.js
