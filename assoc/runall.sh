@@ -58,3 +58,7 @@ time java hash_map.java
 time java hash_map.java
 time java hash_map.java
 
+julia --version
+time julia dict.jl
+time julia dict.jl
+time julia dict.jl
