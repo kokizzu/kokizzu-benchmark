@@ -8,5 +8,6 @@
 * str-comb: http://kokizzu.blogspot.com/2015/02/string-combsort-benchmark-updated.html
 * assoc-small, num-comb, str-comb: https://kokizzu.blogspot.com/2020/12/string-associative-array-and-combsort.html
 * assoc, num-comb, str-comb: http://kokizzu.blogspot.com/2021/12/string-associative-array-and-combsort.html
+* assoc, num-comb: https://kokizzu.blogspot.com/2022/02/c-vs-go-in-simple-benchmark.html
 
 For database benchmark moved [here](https://github.com/kokizzu/hugedbbench/)

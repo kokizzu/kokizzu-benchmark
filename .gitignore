@@ -1,2 +1,6 @@
 
 a.out
+*.iml
+bin/
+obj/
+.idea

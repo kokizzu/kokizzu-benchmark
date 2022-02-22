@@ -1,7 +1,7 @@
 // dictionary.cs
 using System;
 using System.Collections.Generic;
-class dictionary {
+class Program {
 	class MSD: Dictionary<string,double> {
 		public bool add_or_inc(string key, double set, double inc) {
 			if(!base.ContainsKey(key)) {
