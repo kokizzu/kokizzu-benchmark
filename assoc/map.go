@@ -2,9 +2,9 @@
 package main
 
 import (
-	`bytes`
-	`fmt`
-	`strconv`
+	"bytes"
+	"fmt"
+	"strconv"
 )
 
 type MSD map[string]float64
