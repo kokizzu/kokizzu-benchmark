@@ -37,18 +37,18 @@ go test -bench=. -benchmem -benchtime=3s
 goos: linux
 goarch: amd64
 pkg: ser_deser         
-Benchmark_M2S_EncodingJson_EncodeDecode-32               1634474              2222 ns/op            1385 B/op         19 allocs/op
-Benchmark_S2M_EncodingJson_EncodeDecode-32               1678803              2067 ns/op            1474 B/op         21 allocs/op
-Benchmark_M2S_EncodingJson_MarshalUnmarshal-32           2056944              1780 ns/op             600 B/op         16 allocs/op
-Benchmark_S2M_EncodingJson_MarshalUnmarshal-32           1914165              1782 ns/op             688 B/op         18 allocs/op
-Benchmark_M2S_KokizzuJson5b_MarshalUnmarshal-32          1987240              1711 ns/op             632 B/op         16 allocs/op
-Benchmark_S2M_KokizzuJson5b_MarshalUnmarshal-32          1888774              1884 ns/op             960 B/op         20 allocs/op
-Benchmark_M2S_GoccyGoJson_MarshalUnmarshal-32            6661932               517.4 ns/op            80 B/op          3 allocs/op
-Benchmark_S2M_GoccyGoJson_MarshalUnmarshal-32            4716292               769.7 ns/op           513 B/op         12 allocs/op
-Benchmark_M2S_Vmihailenco_EncodeDecode-32                4605936               791.2 ns/op           456 B/op          8 allocs/op
-Benchmark_S2M_Vmihailenco_EncodeDecode-32                3973827               953.1 ns/op           872 B/op         15 allocs/op
-Benchmark_M2S_Vmihailenco_MarhsalUnmarshal-32            4572597               741.3 ns/op           188 B/op          5 allocs/op
-Benchmark_S2M_Vmihailenco_MarhsalUnmarshal-32            3700621               951.5 ns/op           606 B/op         12 allocs/op
+Benchmark_M2S_EncodingJson_EncodeDecode-32       1634474   2222 ns/op    1385 B/op  19 allocs/op
+Benchmark_S2M_EncodingJson_EncodeDecode-32       1678803   2067 ns/op    1474 B/op  21 allocs/op
+Benchmark_M2S_EncodingJson_MarshalUnmarshal-32   2056944   1780 ns/op     600 B/op  16 allocs/op
+Benchmark_S2M_EncodingJson_MarshalUnmarshal-32   1914165   1782 ns/op     688 B/op  18 allocs/op
+Benchmark_M2S_KokizzuJson5b_MarshalUnmarshal-32  1987240   1711 ns/op     632 B/op  16 allocs/op
+Benchmark_S2M_KokizzuJson5b_MarshalUnmarshal-32  1888774   1884 ns/op     960 B/op  20 allocs/op
+Benchmark_M2S_GoccyGoJson_MarshalUnmarshal-32    6661932    517.4 ns/op    80 B/op   3 allocs/op
+Benchmark_S2M_GoccyGoJson_MarshalUnmarshal-32    4716292    769.7 ns/op   513 B/op  12 allocs/op
+Benchmark_M2S_Vmihailenco_EncodeDecode-32        4605936    791.2 ns/op   456 B/op   8 allocs/op
+Benchmark_S2M_Vmihailenco_EncodeDecode-32        3973827    953.1 ns/op   872 B/op  15 allocs/op
+Benchmark_M2S_Vmihailenco_MarhsalUnmarshal-32    4572597    741.3 ns/op   188 B/op   5 allocs/op
+Benchmark_S2M_Vmihailenco_MarhsalUnmarshal-32    3700621    951.5 ns/op   606 B/op  12 allocs/op
 PASS
 ok      ser_deser       59.196s
 ```
