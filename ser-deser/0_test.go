@@ -1,4 +1,4 @@
-package main_test
+package main
 
 import (
 	"testing"
@@ -36,36 +36,52 @@ func mapMatch(t *testing.T, m map[string]any) {
 func TestVerify(t *testing.T) {
 	var resultA myStruct
 	var resultB map[string]any
-	{
+	t.Run("EncodingJson_EncodeDecode", func(t *testing.T) {
 		resultA = myStruct{}
-		EncodingJsonEncodeDecode(myMap1, &resultA)
+		EncodingJson_EncodeDecode(myMap1, &resultA)
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
-		EncodingJsonEncodeDecode(resultA, &resultB)
+		EncodingJson_EncodeDecode(resultA, &resultB)
 		mapMatch(t, resultB)
-	}
-	{
+	})
+	t.Run("EncodingJson_MarshalUnmarshal", func(t *testing.T) {
 		resultA = myStruct{}
-		EncodingJsonMarshalUnmarshal(myMap1, &resultA)
+		EncodingJson_MarshalUnmarshal(myMap1, &resultA)
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
-		EncodingJsonMarshalUnmarshal(resultA, &resultB)
+		EncodingJson_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
-	}
-	{
+	})
+	t.Run("KokizzuJson5b_MarshalUnmarshal", func(t *testing.T) {
 		resultA = myStruct{}
-		KokizzuJson5bMarshalUnmarshal(myMap1, &resultA)
+		KokizzuJson5b_MarshalUnmarshal(myMap1, &resultA)
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
-		KokizzuJson5bMarshalUnmarshal(resultA, &resultB)
+		KokizzuJson5b_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
-	}
-	{
+	})
+	t.Run("GoccyGoJson_MarshalUnmarshal", func(t *testing.T) {
 		resultA = myStruct{}
-		GoccyGoJsonMarshalUnmarshal(myMap1, &resultA)
+		GoccyGoJson_MarshalUnmarshal(myMap1, &resultA)
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
-		GoccyGoJsonMarshalUnmarshal(resultA, &resultB)
+		GoccyGoJson_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
-	}
+	})
+	t.Run("Vmihailenco_EncodeDecode", func(t *testing.T) {
+		resultA = myStruct{}
+		Vmihailenco_EncodeDecode(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		Vmihailenco_EncodeDecode(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("Vmihailenco_MarhsalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		Vmihailenco_MarhsalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		Vmihailenco_MarhsalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
 }
