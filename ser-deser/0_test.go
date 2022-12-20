@@ -36,14 +36,14 @@ func mapMatch(t *testing.T, m map[string]any) {
 func TestVerify(t *testing.T) {
 	var resultA myStruct
 	var resultB map[string]any
-	t.Run("EncodingJson_EncodeDecode", func(t *testing.T) {
-		resultA = myStruct{}
-		EncodingJson_EncodeDecode(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
-		EncodingJson_EncodeDecode(resultA, &resultB)
-		mapMatch(t, resultB)
-	})
+	//t.Run("EncodingJson_EncodeDecode", func(t *testing.T) {
+	//	resultA = myStruct{}
+	//	EncodingJson_EncodeDecode(myMap1, &resultA)
+	//	structMatch(t, &resultA)
+	//	resultB = map[string]any{}
+	//	EncodingJson_EncodeDecode(resultA, &resultB)
+	//	mapMatch(t, resultB)
+	//})
 	t.Run("EncodingJson_MarshalUnmarshal", func(t *testing.T) {
 		resultA = myStruct{}
 		EncodingJson_MarshalUnmarshal(myMap1, &resultA)
@@ -68,20 +68,28 @@ func TestVerify(t *testing.T) {
 		GoccyGoJson_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
-	t.Run("Vmihailenco_EncodeDecode", func(t *testing.T) {
-		resultA = myStruct{}
-		Vmihailenco_EncodeDecode(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
-		Vmihailenco_EncodeDecode(resultA, &resultB)
-		mapMatch(t, resultB)
-	})
+	//t.Run("Vmihailenco_EncodeDecode", func(t *testing.T) {
+	//	resultA = myStruct{}
+	//	Vmihailenco_EncodeDecode(myMap1, &resultA)
+	//	structMatch(t, &resultA)
+	//	resultB = map[string]any{}
+	//	Vmihailenco_EncodeDecode(resultA, &resultB)
+	//	mapMatch(t, resultB)
+	//})
 	t.Run("Vmihailenco_MarhsalUnmarshal", func(t *testing.T) {
 		resultA = myStruct{}
 		Vmihailenco_MarhsalUnmarshal(myMap1, &resultA)
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
 		Vmihailenco_MarhsalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("FxamackerCbor_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		FxamackerCbor_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		FxamackerCbor_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 }

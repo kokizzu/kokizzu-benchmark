@@ -5,6 +5,7 @@
 - github.com/kokizzu/json5b/encoding/json5b
 - github.com/goccy/go-json
 - github.com/vmihailenco/msgpack/v5
+- github.com/fxamacker/cbor/v2
 
 ## TL;DR
 
@@ -37,6 +38,8 @@ go test -bench=. -benchmem -benchtime=3s
 goos: linux
 goarch: amd64
 pkg: ser_deser         
+Benchmark_M2S_FxamackerCbor_MarshalUnmarshal-32  3801982    853.6 ns/op   112 B/op   8 allocs/op
+Benchmark_S2M_FxamackerCbor_MarshalUnmarshal-32  3251618   1084 ns/op     444 B/op  11 allocs/op
 Benchmark_M2S_EncodingJson_MarshalUnmarshal-32   2056944   1780 ns/op     600 B/op  16 allocs/op
 Benchmark_S2M_EncodingJson_MarshalUnmarshal-32   1914165   1782 ns/op     688 B/op  18 allocs/op
 Benchmark_M2S_KokizzuJson5b_MarshalUnmarshal-32  1987240   1711 ns/op     632 B/op  16 allocs/op
@@ -46,5 +49,4 @@ Benchmark_S2M_GoccyGoJson_MarshalUnmarshal-32    4716292    769.7 ns/op   513 B/
 Benchmark_M2S_Vmihailenco_MarhsalUnmarshal-32    4572597    741.3 ns/op   188 B/op   5 allocs/op
 Benchmark_S2M_Vmihailenco_MarhsalUnmarshal-32    3700621    951.5 ns/op   606 B/op  12 allocs/op
 PASS
-ok      ser_deser       59.196s
 ```
