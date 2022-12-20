@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"encoding/json"
 	"testing"
 
@@ -11,24 +10,25 @@ import (
 
 // encoding/json
 
-func EncodingJson_EncodeDecode(in, out any) {
-	buf := new(bytes.Buffer)
-	_ = json.NewEncoder(buf).Encode(in)
-	_ = json.NewDecoder(buf).Decode(out)
-}
-
-func Benchmark_M2S_EncodingJson_EncodeDecode(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		resultA := myStruct{}
-		EncodingJson_EncodeDecode(myMap1, &resultA)
-	}
-}
-func Benchmark_S2M_EncodingJson_EncodeDecode(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		resultA := map[string]any{}
-		EncodingJson_EncodeDecode(myRow1, &resultA)
-	}
-}
+// removed because slower than EncodingJson_MarshalUnmarshal
+//func EncodingJson_EncodeDecode(in, out any) {
+//	buf := new(bytes.Buffer)
+//	_ = json.NewEncoder(buf).Encode(in)
+//	_ = json.NewDecoder(buf).Decode(out)
+//}
+//
+//func Benchmark_M2S_EncodingJson_EncodeDecode(b *testing.B) {
+//	for i := 0; i < b.N; i++ {
+//		resultA := myStruct{}
+//		EncodingJson_EncodeDecode(myMap1, &resultA)
+//	}
+//}
+//func Benchmark_S2M_EncodingJson_EncodeDecode(b *testing.B) {
+//	for i := 0; i < b.N; i++ {
+//		resultA := map[string]any{}
+//		EncodingJson_EncodeDecode(myRow1, &resultA)
+//	}
+//}
 
 func EncodingJson_MarshalUnmarshal(in, out any) {
 	b, _ := json.Marshal(in)
