@@ -4,6 +4,7 @@
 - encoding/json
 - github.com/kokizzu/json5b/encoding/json5b
 - github.com/goccy/go-json
+- github.com/vmihailenco/msgpack/v5
 
 ## TL;DR
 
