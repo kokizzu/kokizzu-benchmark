@@ -50,3 +50,10 @@ Benchmark_M2S_Vmihailenco_MarhsalUnmarshal-32    4572597    741.3 ns/op   188 B/
 Benchmark_S2M_Vmihailenco_MarhsalUnmarshal-32    3700621    951.5 ns/op   606 B/op  12 allocs/op
 PASS
 ```
+
+## FAQ: am I allowed to add codegen?
+
+Yes
+
+1. as long as it have `go:generate` and proper `go install` comment
+2. as long as it can serialize and deserialize dynamic structure properly (map to struct, struct to map)
