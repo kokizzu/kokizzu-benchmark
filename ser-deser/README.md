@@ -12,7 +12,9 @@
 ## How to run?
 
 ```bash
-go test -bench .
+go test -bench=.
+go test -bench=. -benchmem
+go test -bench=. -benchtime 3s
 ```
 
 ## How to add new test?
