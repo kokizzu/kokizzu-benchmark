@@ -3,6 +3,7 @@ module ser_deser
 go 1.19
 
 require (
+	github.com/davecgh/go-xdr v0.0.0-20161123171359-e6a2ba005892
 	github.com/fxamacker/cbor/v2 v2.4.0
 	github.com/ghodss/yaml v1.0.0
 	github.com/goccy/go-json v0.10.0
@@ -13,6 +14,7 @@ require (
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7
 	github.com/ugorji/go/codec v1.2.7
 	github.com/vmihailenco/msgpack/v5 v5.3.5
+	go.mongodb.org/mongo-driver v1.11.1
 	gopkg.in/yaml.v3 v3.0.1
 )
 

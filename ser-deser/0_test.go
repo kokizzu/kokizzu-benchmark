@@ -7,8 +7,8 @@ import (
 )
 
 type myStruct struct {
-	Name string `yaml:"Name"`
-	Age  int64  `yaml:"Age"`
+	Name string `yaml:"Name" bson:"Name"`
+	Age  int64  `yaml:"Age" bson:"Age"`
 }
 
 var myMap1 = map[string]any{
@@ -156,4 +156,20 @@ func TestVerify(t *testing.T) {
 		PquernaFfjson_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
+	t.Run("MongoDriverBson_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		MongoDriverBson_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		MongoDriverBson_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	//t.Run("DavecghGoXdrXdr2_MarshalUnmarshal", func(t *testing.T) {
+	//	resultA = myStruct{}
+	//	DavecghGoXdrXdr2_MarshalUnmarshal(myMap1, &resultA)
+	//	structMatch(t, &resultA)
+	//	resultB = map[string]any{}
+	//	DavecghGoXdrXdr2_MarshalUnmarshal(resultA, &resultB)
+	//	mapMatch(t, resultB)
+	//})
 }

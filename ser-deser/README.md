@@ -13,6 +13,7 @@
 - github.com/json-iterator/go
 - github.com/shamaton/msgpack/v2
 - github.com/pquerna/ffjson
+- go.mongodb.org/mongo-driver/bson 
 
 ## TL;DR
 
@@ -45,6 +46,8 @@ go test -bench=. -benchmem -benchtime=3s
 goos: linux
 goarch: amd64 
 pkg: ser_deser          
+Benchmark_M2S_MongoDriverBson_MarshalUnmarshal-32      2083712    1719 ns/op     413 B/op  14 allocs/op
+Benchmark_S2M_MongoDriverBson_MarshalUnmarshal-32      1476170    2668 ns/op     759 B/op  18 allocs/op
 Benchmark_M2S_FxamackerCbor_MarshalUnmarshal-32        3801982     853.6 ns/op   112 B/op   8 allocs/op
 Benchmark_S2M_FxamackerCbor_MarshalUnmarshal-32        3251618    1084 ns/op     444 B/op  11 allocs/op
 Benchmark_M2S_EncodingJson_MarshalUnmarshal-32         2056944    1780 ns/op     600 B/op  16 allocs/op

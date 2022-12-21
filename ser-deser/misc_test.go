@@ -121,3 +121,26 @@ func Benchmark_S2M_FxamackerCbor_MarshalUnmarshal(b *testing.B) {
 		FxamackerCbor_MarshalUnmarshal(myRow1, &resultA)
 	}
 }
+
+// github.com/davecgh/go-xdr/xdr2
+// failed serialize/deserialize
+
+//func DavecghGoXdrXdr2_MarshalUnmarshal(in, out any) {
+//	w := new(bytes.Buffer)
+//	_, _ = xdr.Marshal(w, in)
+//	_, _ = xdr.Unmarshal(w, out)
+//}
+//
+//func Benchmark_M2S_DavecghGoXdrXdr2_MarshalUnmarshal(b *testing.B) {
+//	for i := 0; i < b.N; i++ {
+//		resultA := myStruct{}
+//		DavecghGoXdrXdr2_MarshalUnmarshal(myMap1, &resultA)
+//	}
+//}
+//
+//func Benchmark_S2M_DavecghGoXdrXdr2_MarshalUnmarshal(b *testing.B) {
+//	for i := 0; i < b.N; i++ {
+//		resultA := map[string]any{}
+//		DavecghGoXdrXdr2_MarshalUnmarshal(myRow1, &resultA)
+//	}
+//}

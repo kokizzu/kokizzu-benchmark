@@ -9,6 +9,7 @@ import (
 )
 
 // github.com/goccy/go-yaml
+// require yaml tag on the struct
 
 func GoccyGoYaml_MarshalUnmarshal(in, out any) {
 	b, _ := goyaml.Marshal(in)
@@ -29,6 +30,7 @@ func Benchmark_S2M_GoccyGoYaml_MarshalUnmarshal(b *testing.B) {
 }
 
 // gopkg.in/yaml.v3
+// require yaml tag on the struct
 
 func GopkgInYamlV3_MarshalUnmarshal(in, out any) {
 	b, _ := yaml3.Marshal(in)
@@ -51,9 +53,9 @@ func Benchmark_S2M_GopkgInYamlV3_MarshalUnmarshal(b *testing.B) {
 }
 
 // github.com/ghodss/yaml
+// the only library that doesn't require yaml tag on the struct
 
 func GhodssYaml_MarshalUnmarshal(in, out any) {
-	// the only library that doesn't require yaml tag on the struct
 	b, _ := yaml.Marshal(in)
 	_ = yaml.Unmarshal(b, out)
 }
