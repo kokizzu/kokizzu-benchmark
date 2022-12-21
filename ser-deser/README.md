@@ -122,6 +122,7 @@ Yes
 - github.com/tinylib/msgp
 - github.com/mailru/easyjson
 - github.com/theodesp/binpack
+- github.com/kelindar/binary
 
 ## TODO
 
