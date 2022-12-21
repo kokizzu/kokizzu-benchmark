@@ -84,3 +84,7 @@ Yes
 
 1. as long as it have `go:generate` and proper `go install` comment
 2. as long as it can serialize and deserialize dynamic structure properly (map to struct, struct to map)
+
+## TODO
+
+- for libraries that default doesn't have buffer pool add a `sync.Pool`
