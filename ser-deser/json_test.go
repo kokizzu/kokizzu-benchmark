@@ -7,6 +7,7 @@ import (
 	gojson "github.com/goccy/go-json"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/kokizzu/json5b/encoding/json5b"
+	"github.com/pquerna/ffjson/ffjson"
 )
 
 // encoding/json
@@ -88,5 +89,26 @@ func Benchmark_S2M_JsonIteratorGo_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
 		JsonIteratorGo_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+// github.com/pquerna/ffjson/ffjson
+
+func PquernaFfjson_MarshalUnmarshal(in, out any) {
+	b, _ := ffjson.Marshal(in)
+	_ = ffjson.Unmarshal(b, out)
+}
+
+func Benchmark_M2S_PquernaFfjson_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		PquernaFfjson_MarshalUnmarshal(myMap1, &resultA)
+	}
+}
+
+func Benchmark_S2M_PquernaFfjson_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := map[string]any{}
+		PquernaFfjson_MarshalUnmarshal(myRow1, &resultA)
 	}
 }

@@ -12,6 +12,7 @@
 - github.com/ugorji/go/codec
 - github.com/json-iterator/go
 - github.com/shamaton/msgpack/v2
+- github.com/pquerna/ffjson
 
 ## TL;DR
 
@@ -54,6 +55,8 @@ Benchmark_M2S_GoccyGoJson_MarshalUnmarshal-32          6661932     517.4 ns/op  
 Benchmark_S2M_GoccyGoJson_MarshalUnmarshal-32          4716292     769.7 ns/op   513 B/op  12 allocs/op
 Benchmark_M2S_JsonIteratorGo_MarshalUnmarshal-32       4364426     831.2 ns/op   188 B/op   8 allocs/op
 Benchmark_S2M_JsonIteratorGo_MarshalUnmarshal-32       3411016    1072 ns/op     497 B/op  14 allocs/op
+Benchmark_M2S_PquernaFfjson_MarshalUnmarshal-32        1537023    2446 ns/op     600 B/op  16 allocs/op
+Benchmark_S2M_PquernaFfjson_MarshalUnmarshal-32        1559665    2338 ns/op     689 B/op  18 allocs/op
 Benchmark_M2S_UngorjiGoCodec_CborEncodeDecode-32       1000000    3377 ns/op    4340 B/op  23 allocs/op
 Benchmark_S2M_UngorjiGoCodec_CborEncodeDecode-32        823958    4117 ns/op    4888 B/op  34 allocs/op
 Benchmark_M2S_UngorjiGocodec_BincEncodeDecode-32       1000000    3221 ns/op    4340 B/op  23 allocs/op

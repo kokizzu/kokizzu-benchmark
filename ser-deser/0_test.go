@@ -148,4 +148,12 @@ func TestVerify(t *testing.T) {
 		ShamatonMsgpackV2_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
+	t.Run("PquernaFfjson_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		PquernaFfjson_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		PquernaFfjson_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
 }
