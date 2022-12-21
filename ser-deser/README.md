@@ -1,5 +1,5 @@
 
-# map/struct serialization deserialization benchmark
+# Map/Struct Serialization-Deserialization Benchmark
 
 - encoding/json
 - github.com/kokizzu/json5b/encoding/json5b
@@ -108,4 +108,4 @@ Yes
 
 ## TODO
 
-- for libraries that default doesn't have buffer pool, add a `sync.Pool`
+- for libraries that default doesn't have buffer pool, clone benchmark function and add a private `sync.Pool`
