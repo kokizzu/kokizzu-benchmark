@@ -19,6 +19,7 @@
 - github.com/mitchellh/mapstructure
 - github.com/naoina/toml
 - github.com/hjson/hjson-go/v4
+- github.com/d-o-n-u-t-s/lz4msgpack
 
 ## TL;DR
 
@@ -71,7 +72,7 @@ Benchmark_M2S_UngorjiGocodec_JsonEncodeDecode-32        941674   3932   ns/op   
 Benchmark_M2S_BurntSushiToml_EncodeUnmarshal-32         361131   9382   ns/op    7950 B/op   70 allocs/op
 Benchmark_M2S_HjsonHjsonGoV4_MarshalUnmarshal-32        369955  12260   ns/op    3904 B/op   77 allocs/op
 Benchmark_M2S_GopkgInYamlV3_MarshalUnmarshal-32         216579  16130   ns/op   14104 B/op   79 allocs/op
-Benchmark_M2S_Lz4Msgpack_MarshalUnmarshal-32            247033  17272   ns/op    1271 B/op   16 allocs/op
+Benchmark_M2S_DONUTSLz4Msgpack_MarshalUnmarshal-32      247033  17272   ns/op    1271 B/op   16 allocs/op
 Benchmark_M2S_GoccyGoYaml_MarshalUnmarshal-32           194260  19278   ns/op    7815 B/op  214 allocs/op
 Benchmark_M2S_GhodssYaml_MarshalUnmarshal-32            152730  27637   ns/op   21344 B/op  160 allocs/op
 Benchmark_M2S_NaoinaToml_MarshalUnmarshal-32             42057  88518   ns/op  398393 B/op   77 allocs/op
@@ -94,7 +95,7 @@ Benchmark_S2M_UngorjiGocodec_JsonEncodeDecode-32        731814   4685   ns/op   
 Benchmark_S2M_BurntSushiToml_EncodeUnmarshal-32         368166  10156   ns/op    8222 B/op   72 allocs/op
 Benchmark_S2M_HjsonHjsonGoV4_MarshalUnmarshal-32        325735  10531   ns/op    3842 B/op   65 allocs/op
 Benchmark_S2M_GopkgInYamlV3_MarshalUnmarshal-32         246944  14790   ns/op   14392 B/op   80 allocs/op
-Benchmark_S2M_Lz4Msgpack_MarshalUnmarshal-32            252949  15064   ns/op     730 B/op   16 allocs/op
+Benchmark_S2M_DONUTSLz4Msgpack_MarshalUnmarshal-32      252949  15064   ns/op     730 B/op   16 allocs/op
 Benchmark_S2M_GoccyGoYaml_MarshalUnmarshal-32           193806  18297   ns/op    7574 B/op  202 allocs/op
 Benchmark_S2M_GhodssYaml_MarshalUnmarshal-32            129429  27043   ns/op   21407 B/op  160 allocs/op
 Benchmark_S2M_NaoinaToml_MarshalUnmarshal-32             58723  62006   ns/op  397936 B/op   75 allocs/op

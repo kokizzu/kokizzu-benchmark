@@ -204,12 +204,12 @@ func TestVerify(t *testing.T) {
 		HjsonHjsonGoV4_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
-	t.Run("Lz4Msgpack_MarshalUnmarshal", func(t *testing.T) {
+	t.Run("DONUTSLz4Msgpack_MarshalUnmarshal", func(t *testing.T) {
 		resultA = myStruct{}
-		Lz4Msgpack_MarshalUnmarshal(myMap1, &resultA)
+		DONUTSLz4Msgpack_MarshalUnmarshal(myMap1, &resultA)
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
-		Lz4Msgpack_MarshalUnmarshal(resultA, &resultB)
+		DONUTSLz4Msgpack_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 }
