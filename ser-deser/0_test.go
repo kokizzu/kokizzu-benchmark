@@ -7,8 +7,8 @@ import (
 )
 
 type myStruct struct {
-	Name string
-	Age  int64
+	Name string `yaml:"Name"`
+	Age  int64  `yaml:"Age"`
 }
 
 var myMap1 = map[string]any{
@@ -90,6 +90,30 @@ func TestVerify(t *testing.T) {
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
 		FxamackerCbor_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("GoccyGoYaml_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		GoccyGoYaml_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		GoccyGoYaml_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("GopkgInYamlV3_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		GopkgInYamlV3_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		GopkgInYamlV3_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("GhodssYaml_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		GhodssYaml_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		GhodssYaml_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 }

@@ -4,10 +4,13 @@ go 1.19
 
 require (
 	github.com/fxamacker/cbor/v2 v2.4.0
+	github.com/ghodss/yaml v1.0.0
 	github.com/goccy/go-json v0.10.0
+	github.com/goccy/go-yaml v1.9.5
 	github.com/kokizzu/gotro v1.2325.1708
 	github.com/kokizzu/json5b v0.0.0-20221007102810-943932938d0f
 	github.com/vmihailenco/msgpack/v5 v5.3.5
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
@@ -28,4 +31,6 @@ require (
 	golang.org/x/exp v0.0.0-20220713135740-79cabaa25d75 // indirect
 	golang.org/x/sys v0.3.0 // indirect
 	golang.org/x/tools v0.4.0 // indirect
+	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
