@@ -132,6 +132,7 @@ Yes
 - github.com/vipally/binary
 - github.com/the729/lcs
 - github.com/cristalhq/bencode
+- github.com/mprot/msgpack-go
 
 ## TODO
 
