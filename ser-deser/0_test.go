@@ -116,12 +116,36 @@ func TestVerify(t *testing.T) {
 		GhodssYaml_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
-	t.Run("UngorjiGoCodec_EncodeDecode", func(t *testing.T) {
+	t.Run("UngorjiGoCodec_CborEncodeDecode", func(t *testing.T) {
 		resultA = myStruct{}
-		UngorjiGoCodec_EncodeDecode(myMap1, &resultA)
+		UngorjiGoCodec_CborEncodeDecode(myMap1, &resultA)
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
-		UngorjiGoCodec_EncodeDecode(resultA, &resultB)
+		UngorjiGoCodec_CborEncodeDecode(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("UngorjiGocodec_BincEncodeDecode", func(t *testing.T) {
+		resultA = myStruct{}
+		UngorjiGocodec_BincEncodeDecode(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		UngorjiGocodec_BincEncodeDecode(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("UngorjiGocodec_JsonEncodeDecode", func(t *testing.T) {
+		resultA = myStruct{}
+		UngorjiGocodec_JsonEncodeDecode(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		UngorjiGocodec_JsonEncodeDecode(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("UngorjiGocodec_SimpleEncodeDecode", func(t *testing.T) {
+		resultA = myStruct{}
+		UngorjiGocodec_SimpleEncodeDecode(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		UngorjiGocodec_SimpleEncodeDecode(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("JsonIteratorGo_MarshalUnmarshal", func(t *testing.T) {
@@ -130,6 +154,14 @@ func TestVerify(t *testing.T) {
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
 		JsonIteratorGo_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("ShamatonMsgpackV2_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		ShamatonMsgpackV2_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		ShamatonMsgpackV2_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 }

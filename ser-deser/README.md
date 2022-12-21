@@ -11,6 +11,7 @@
 - github.com/goccy/go-yaml
 - github.com/ugorji/go/codec
 - github.com/json-iterator/go
+- github.com/shamaton/msgpack/v2
 
 ## TL;DR
 
@@ -53,16 +54,24 @@ Benchmark_M2S_GoccyGoJson_MarshalUnmarshal-32          6661932     517.4 ns/op  
 Benchmark_S2M_GoccyGoJson_MarshalUnmarshal-32          4716292     769.7 ns/op   513 B/op  12 allocs/op
 Benchmark_M2S_JsonIteratorGo_MarshalUnmarshal-32       4364426     831.2 ns/op   188 B/op   8 allocs/op
 Benchmark_S2M_JsonIteratorGo_MarshalUnmarshal-32       3411016    1072 ns/op     497 B/op  14 allocs/op
+Benchmark_M2S_UngorjiGoCodec_CborEncodeDecode-32       1000000    3377 ns/op    4340 B/op  23 allocs/op
+Benchmark_S2M_UngorjiGoCodec_CborEncodeDecode-32        823958    4117 ns/op    4888 B/op  34 allocs/op
+Benchmark_M2S_UngorjiGocodec_BincEncodeDecode-32       1000000    3221 ns/op    4340 B/op  23 allocs/op
+Benchmark_S2M_UngorjiGocodec_BincEncodeDecode-32        836186    4188 ns/op    4888 B/op  34 allocs/op
+Benchmark_M2S_UngorjiGocodec_JsonEncodeDecode-32        941674    3932 ns/op    4956 B/op  25 allocs/op
+Benchmark_S2M_UngorjiGocodec_JsonEncodeDecode-32        731814    4685 ns/op    5504 B/op  36 allocs/op
+Benchmark_M2S_UngorjiGocodec_SimpleEncodeDecode-32      984807    3521 ns/op    4340 B/op  23 allocs/op
+Benchmark_S2M_UngorjiGocodec_SimpleEncodeDecode-32      771837    4243 ns/op    4888 B/op  34 allocs/op
 Benchmark_M2S_VmihailencoMspackV5_MarhsalUnmarshal-32  4572597     741.3 ns/op   188 B/op   5 allocs/op
 Benchmark_S2M_VmihailencoMspackV5_MarhsalUnmarshal-32  3700621     951.5 ns/op   606 B/op  12 allocs/op
+Benchmark_M2S_ShamatonMsgpackV2_MarshalUnmarshal-32    3544892    1001 ns/op     188 B/op   5 allocs/op
+Benchmark_S2M_ShamatonMsgpackV2_MarshalUnmarshal-32    2758134    1265 ns/op     606 B/op  12 allocs/op
 Benchmark_M2S_GoccyGoYaml_MarshalUnmarshal-32           194260   19278 ns/op    7815 B/op 214 allocs/op
 Benchmark_S2M_GoccyGoYaml_MarshalUnmarshal-32           193806   18297 ns/op    7574 B/op 202 allocs/op
 Benchmark_M2S_GopkgInYamlV3_MarshalUnmarshal-32         216579   16130 ns/op   14104 B/op  79 allocs/op
 Benchmark_S2M_GopkgInYamlV3_MarshalUnmarshal-32         246944   14790 ns/op   14392 B/op  80 allocs/op
 Benchmark_M2S_GhodssYaml_MarshalUnmarshal-32            152730   27637 ns/op   21344 B/op 160 allocs/op
 Benchmark_S2M_GhodssYaml_MarshalUnmarshal-32            129429   27043 ns/op   21407 B/op 160 allocs/op
-Benchmark_M2S_UngorjiGoCodec-32                         977035    3241 ns/op    4340 B/op  23 allocs/op
-Benchmark_S2M_UngorjiGoCodec-32                         895893    4266 ns/op    4888 B/op  34 allocs/op
 PASS
 ```
 
