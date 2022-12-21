@@ -121,6 +121,7 @@ Yes
 - github.com/davecgh/go-xdr/xdr2
 - github.com/tinylib/msgp
 - github.com/mailru/easyjson
+- github.com/theodesp/binpack
 
 ## TODO
 
