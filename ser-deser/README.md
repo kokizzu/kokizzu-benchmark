@@ -139,6 +139,7 @@ Yes
 - github.com/arloliu/jsonpack
 - github.com/Itay2805/rawbin
 - github.com/superp00t/etc
+- github.com/wwalexander/go-bencode
 
 ## TODO
 
