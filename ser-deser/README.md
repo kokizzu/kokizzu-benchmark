@@ -133,6 +133,7 @@ Yes
 - github.com/the729/lcs
 - github.com/cristalhq/bencode
 - github.com/mprot/msgpack-go
+- github.com/arloliu/jsonpack
 
 ## TODO
 
