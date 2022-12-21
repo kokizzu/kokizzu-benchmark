@@ -8,7 +8,7 @@ import (
 
 // github.com/vmihailenco/msgpack/v5
 
-// removed because slower than Vmihailenco_MarhsalUnmarshal
+// removed because slower than VmihailencoMsgpackV5_MarhsalUnmarshal
 //func Vmihailenco_EncodeDecode(in, out any) {
 //	buf := new(bytes.Buffer)
 //	_ = msgpack.NewEncoder(buf).Encode(in)
@@ -29,20 +29,20 @@ import (
 //	}
 //}
 
-func Vmihailenco_MarhsalUnmarshal(in, out any) {
+func VmihailencoMsgpackV5_MarhsalUnmarshal(in, out any) {
 	b, _ := msgpack.Marshal(in)
 	_ = msgpack.Unmarshal(b, out)
 }
 func Benchmark_M2S_Vmihailenco_MarhsalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := myStruct{}
-		Vmihailenco_MarhsalUnmarshal(myMap1, &resultA)
+		VmihailencoMsgpackV5_MarhsalUnmarshal(myMap1, &resultA)
 	}
 }
 
 func Benchmark_S2M_Vmihailenco_MarhsalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
-		Vmihailenco_MarhsalUnmarshal(myRow1, &resultA)
+		VmihailencoMsgpackV5_MarhsalUnmarshal(myRow1, &resultA)
 	}
 }

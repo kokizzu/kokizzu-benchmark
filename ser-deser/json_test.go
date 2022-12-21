@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	gojson "github.com/goccy/go-json"
+	jsoniter "github.com/json-iterator/go"
 	"github.com/kokizzu/json5b/encoding/json5b"
 )
 
@@ -86,5 +87,26 @@ func Benchmark_S2M_GoccyGoJson_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
 		GoccyGoJson_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+// github.com/json-iterator/go
+
+func JsonIteratorGo_MarshalUnmarshal(in, out any) {
+	b, _ := jsoniter.Marshal(in)
+	_ = jsoniter.Unmarshal(b, out)
+}
+
+func Benchmark_M2S_JsonIteratorGo_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		JsonIteratorGo_MarshalUnmarshal(myMap1, &resultA)
+	}
+}
+
+func Benchmark_S2M_JsonIteratorGo_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := map[string]any{}
+		JsonIteratorGo_MarshalUnmarshal(myRow1, &resultA)
 	}
 }

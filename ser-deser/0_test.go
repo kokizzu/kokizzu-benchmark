@@ -76,12 +76,12 @@ func TestVerify(t *testing.T) {
 	//	Vmihailenco_EncodeDecode(resultA, &resultB)
 	//	mapMatch(t, resultB)
 	//})
-	t.Run("Vmihailenco_MarhsalUnmarshal", func(t *testing.T) {
+	t.Run("VmihailencoMsgpackV5_MarhsalUnmarshal", func(t *testing.T) {
 		resultA = myStruct{}
-		Vmihailenco_MarhsalUnmarshal(myMap1, &resultA)
+		VmihailencoMsgpackV5_MarhsalUnmarshal(myMap1, &resultA)
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
-		Vmihailenco_MarhsalUnmarshal(resultA, &resultB)
+		VmihailencoMsgpackV5_MarhsalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("FxamackerCbor_MarshalUnmarshal", func(t *testing.T) {
@@ -114,6 +114,22 @@ func TestVerify(t *testing.T) {
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
 		GhodssYaml_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("UngorjiGoCodec_EncodeDecode", func(t *testing.T) {
+		resultA = myStruct{}
+		UngorjiGoCodec_EncodeDecode(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		UngorjiGoCodec_EncodeDecode(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("JsonIteratorGo_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		JsonIteratorGo_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		JsonIteratorGo_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 }

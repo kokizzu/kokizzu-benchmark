@@ -7,8 +7,10 @@ require (
 	github.com/ghodss/yaml v1.0.0
 	github.com/goccy/go-json v0.10.0
 	github.com/goccy/go-yaml v1.9.5
+	github.com/json-iterator/go v1.1.12
 	github.com/kokizzu/gotro v1.2325.1708
 	github.com/kokizzu/json5b v0.0.0-20221007102810-943932938d0f
+	github.com/ugorji/go/codec v1.2.7
 	github.com/vmihailenco/msgpack/v5 v5.3.5
 	gopkg.in/yaml.v3 v3.0.1
 )
@@ -21,6 +23,8 @@ require (
 	github.com/kr/text v0.2.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
+	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
+	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
