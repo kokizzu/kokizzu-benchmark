@@ -110,6 +110,16 @@ Yes
 1. as long as it have `go:generate` and proper `go install` comment
 2. as long as it can serialize and deserialize dynamic structure properly (map to struct, struct to map)
 
+## FAQ: failed attempts?
+
+- github.com/hprose/hprose-golang/v2
+- github.com/ikkerens/ikeapack
+- github.com/glycerine/zebrapack
+- github.com/niubaoshu/gotiny
+- github.com/jinzhu/copier
+- github.com/mashingan/smapping
+- github.com/davecgh/go-xdr/xdr2
+
 ## TODO
 
 - for libraries that default doesn't have buffer pool, clone benchmark function and add a private `sync.Pool`
