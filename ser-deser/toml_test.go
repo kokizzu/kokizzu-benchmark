@@ -9,22 +9,22 @@ import (
 )
 
 // github.com/BurntSushi/toml
-func BurntSushiToml_MarshalUnmarshal(in, out any) {
+func BurntSushiToml_EncodeUnmarshal(in, out any) {
 	b := new(bytes.Buffer)
 	enc := toml.NewEncoder(b)
-	enc.Encode(in)
+	_ = enc.Encode(in)
 	_ = toml.Unmarshal(b.Bytes(), out)
 }
-func Benchmark_M2S_BurntSushiToml_MarshalUnmarshal(b *testing.B) {
+func Benchmark_M2S_BurntSushiToml_EncodeUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := myStruct{}
-		BurntSushiToml_MarshalUnmarshal(myMap1, &resultA)
+		BurntSushiToml_EncodeUnmarshal(myMap1, &resultA)
 	}
 }
-func Benchmark_S2M_BurntSushiToml_MarshalUnmarshal(b *testing.B) {
+func Benchmark_S2M_BurntSushiToml_EncodeUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
-		BurntSushiToml_MarshalUnmarshal(myRow1, &resultA)
+		BurntSushiToml_EncodeUnmarshal(myRow1, &resultA)
 	}
 }
 

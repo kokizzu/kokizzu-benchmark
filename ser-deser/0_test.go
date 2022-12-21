@@ -164,12 +164,12 @@ func TestVerify(t *testing.T) {
 		MongoDriverBson_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
-	t.Run("BurntSushiToml_MarshalUnmarshal", func(t *testing.T) {
+	t.Run("BurntSushiToml_EncodeUnmarshal", func(t *testing.T) {
 		resultA = myStruct{}
-		BurntSushiToml_MarshalUnmarshal(myMap1, &resultA)
+		BurntSushiToml_EncodeUnmarshal(myMap1, &resultA)
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
-		BurntSushiToml_MarshalUnmarshal(resultA, &resultB)
+		BurntSushiToml_EncodeUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("PelletierGoTomlV2_MarshalUnmarshal", func(t *testing.T) {
