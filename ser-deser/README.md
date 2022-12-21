@@ -126,6 +126,7 @@ Yes
 - github.com/polydawn/refmt
 - github.com/renproject/surge
 - github.com/vipally/binary
+- github.com/the729/lcs
 
 ## TODO
 
