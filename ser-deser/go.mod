@@ -18,6 +18,7 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.6
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7
 	github.com/shamaton/msgpack/v2 v2.1.1
+	github.com/surrealdb/cork v0.0.0-20211208110447-54ccd49930c9
 	github.com/ugorji/go/codec v1.2.7
 	github.com/vmihailenco/msgpack/v5 v5.3.5
 	go.mongodb.org/mongo-driver v1.11.1
@@ -39,6 +40,7 @@ require (
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
 	github.com/pierrec/lz4/v4 v4.1.15 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
+	github.com/surrealdb/bump v0.0.0-20211208102305-88d509230106 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	github.com/yosuke-furukawa/json5 v0.1.1 // indirect

@@ -212,4 +212,12 @@ func TestVerify(t *testing.T) {
 		DONUTSLz4Msgpack_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
+	t.Run("SurrealdbCork_EncodeDecode", func(t *testing.T) {
+		resultA = myStruct{}
+		SurrealdbCork_EncodeDecode(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		SurrealdbCork_EncodeDecode(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
 }

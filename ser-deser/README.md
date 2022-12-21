@@ -20,6 +20,7 @@
 - github.com/naoina/toml
 - github.com/hjson/hjson-go/v4
 - github.com/d-o-n-u-t-s/lz4msgpack
+- github.com/surrealdb/cork
 
 ## TL;DR
 
@@ -58,6 +59,7 @@ Benchmark_M2S_GoccyGoJson_MarshalUnmarshal-32          6661932    517.4 ns/op   
 Benchmark_M2S_VmihailencoMspackV5_MarhsalUnmarshal-32  4572597    741.3 ns/op     188 B/op    5 allocs/op
 Benchmark_M2S_JsonIteratorGo_MarshalUnmarshal-32       4364426    831.2 ns/op     188 B/op    8 allocs/op
 Benchmark_M2S_FxamackerCbor_MarshalUnmarshal-32        3801982    853.6 ns/op     112 B/op    8 allocs/op
+Benchmark_M2S_SurrealdbCork_EncodeDecode-32            3105571   1155   ns/op    1217 B/op    6 allocs/op
 Benchmark_M2S_ShamatonMsgpackV2_MarshalUnmarshal-32    2567893   1379   ns/op     956 B/op   15 allocs/op
 Benchmark_M2S_KokizzuJson5b_MarshalUnmarshal-32        1987240   1711   ns/op     632 B/op   16 allocs/op
 Benchmark_M2S_MongoDriverBson_MarshalUnmarshal-32      2083712   1719   ns/op     413 B/op   14 allocs/op
@@ -76,12 +78,14 @@ Benchmark_M2S_DONUTSLz4Msgpack_MarshalUnmarshal-32      247033  17272   ns/op   
 Benchmark_M2S_GoccyGoYaml_MarshalUnmarshal-32           194260  19278   ns/op    7815 B/op  214 allocs/op
 Benchmark_M2S_GhodssYaml_MarshalUnmarshal-32            152730  27637   ns/op   21344 B/op  160 allocs/op
 Benchmark_M2S_NaoinaToml_MarshalUnmarshal-32             42057  88518   ns/op  398393 B/op   77 allocs/op
-                                                                    
+
+                                                       
 Benchmark_S2M_GoccyGoJson_MarshalUnmarshal-32          4716292    769.7 ns/op     513 B/op   12 allocs/op
 Benchmark_S2M_MitchellhMapstructure_Decode-32          4160382    878.7 ns/op     536 B/op   12 allocs/op
 Benchmark_S2M_VmihailencoMspackV5_MarhsalUnmarshal-32  3700621    951.5 ns/op     606 B/op   12 allocs/op
 Benchmark_S2M_JsonIteratorGo_MarshalUnmarshal-32       3411016   1072   ns/op     497 B/op   14 allocs/op
 Benchmark_S2M_FxamackerCbor_MarshalUnmarshal-32        3251618   1084   ns/op     444 B/op   11 allocs/op
+Benchmark_S2M_SurrealdbCork_EncodeDecode-32            2806642   1289   ns/op    1611 B/op   12 allocs/op
 Benchmark_S2M_ShamatonMsgpackV2_MarshalUnmarshal-32    2669648   1291   ns/op     556 B/op   15 allocs/op
 Benchmark_S2M_EncodingJson_MarshalUnmarshal-32         1914165   1782   ns/op     688 B/op   18 allocs/op
 Benchmark_S2M_KokizzuJson5b_MarshalUnmarshal-32        1888774   1884   ns/op     960 B/op   20 allocs/op

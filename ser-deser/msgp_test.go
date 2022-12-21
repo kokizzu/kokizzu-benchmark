@@ -5,6 +5,7 @@ import (
 
 	lzmsgpack "github.com/d-o-n-u-t-s/lz4msgpack"
 	msgpack2 "github.com/shamaton/msgpack/v2"
+	"github.com/surrealdb/cork"
 	msgpack5 "github.com/vmihailenco/msgpack/v5"
 )
 
@@ -67,5 +68,26 @@ func Benchmark_S2M_DONUTSLz4Msgpack_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
 		DONUTSLz4Msgpack_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+// github.com/surrealdb/cork
+
+func SurrealdbCork_EncodeDecode(in, out any) {
+	b := cork.Encode(in)
+	cork.DecodeInto(b, out)
+}
+
+func Benchmark_M2S_SurrealdbCork_EncodeDecode(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		SurrealdbCork_EncodeDecode(myMap1, &resultA)
+	}
+}
+
+func Benchmark_S2M_SurrealdbCork_EncodeDecode(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := map[string]any{}
+		SurrealdbCork_EncodeDecode(myRow1, &resultA)
 	}
 }
