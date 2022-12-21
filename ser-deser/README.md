@@ -103,11 +103,11 @@ Benchmark_S2M_NaoinaToml_MarshalUnmarshal-32             58723  62006   ns/op  3
 PASS
 ```
 
-## FAQ: am I allowed to add codegen?
+## FAQ: is it ok to add codegen format?
 
 Yes
 
-1. as long as it have `go:generate` and proper `go install` comment
+1. as long as it have `go:generate THE_CODEGEN_COMMAND` and proper `go:generate go install` comment
 2. as long as it can serialize and deserialize dynamic structure properly (map to struct, struct to map)
 
 ## FAQ: failed attempts?
