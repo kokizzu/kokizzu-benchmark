@@ -18,6 +18,7 @@
 - github.com/pelletier/go-toml/v2
 - github.com/mitchellh/mapstructure
 - github.com/naoina/toml
+- github.com/hjson/hjson-go/v4
 
 ## TL;DR
 
@@ -90,6 +91,9 @@ Benchmark_M2S_NaoinaToml_MarshalUnmarshal-32             42057   88518 ns/op  39
 Benchmark_S2M_NaoinaToml_MarshalUnmarshal-32             58723   62006 ns/op  397936 B/op  75 allocs/op
 Benchmark_M2S_GhodssYaml_MarshalUnmarshal-32            152730   27637 ns/op   21344 B/op 160 allocs/op
 Benchmark_S2M_GhodssYaml_MarshalUnmarshal-32            129429   27043 ns/op   21407 B/op 160 allocs/op
+Benchmark_M2S_HjsonHjsonGoV4_MarshalUnmarshal-32        369955   12260 ns/op    3904 B/op  77 allocs/op
+Benchmark_S2M_HjsonHjsonGoV4_MarshalUnmarshal-32        325735   10531 ns/op    3842 B/op  65 allocs/op
+
 PASS
 ```
 

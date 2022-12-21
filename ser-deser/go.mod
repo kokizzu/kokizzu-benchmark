@@ -8,6 +8,7 @@ require (
 	github.com/ghodss/yaml v1.0.0
 	github.com/goccy/go-json v0.10.0
 	github.com/goccy/go-yaml v1.9.5
+	github.com/hjson/hjson-go/v4 v4.3.0
 	github.com/json-iterator/go v1.1.12
 	github.com/kokizzu/gotro v1.2325.1708
 	github.com/kokizzu/json5b v0.0.0-20221007102810-943932938d0f

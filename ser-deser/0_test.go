@@ -196,4 +196,12 @@ func TestVerify(t *testing.T) {
 		NaoinaToml_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
+	t.Run("HjsonHjsonGoV4_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		HjsonHjsonGoV4_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		HjsonHjsonGoV4_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
 }
