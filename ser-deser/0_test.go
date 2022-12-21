@@ -220,4 +220,12 @@ func TestVerify(t *testing.T) {
 		SurrealdbCork_EncodeDecode(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
+	t.Run("EtNikBinngo_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		EtNikBinngo_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		EtNikBinngo_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
 }

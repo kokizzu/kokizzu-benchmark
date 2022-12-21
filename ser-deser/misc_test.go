@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"testing"
 
+	"github.com/et-nik/binngo"
 	"github.com/fxamacker/cbor/v2"
 	"github.com/ugorji/go/codec"
 )
@@ -119,5 +120,26 @@ func Benchmark_S2M_FxamackerCbor_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
 		FxamackerCbor_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+// github.com/et-nik/binngo
+
+func EtNikBinngo_MarshalUnmarshal(in, out any) {
+	b, _ := binngo.Marshal(in)
+	_ = binngo.Unmarshal(b, out)
+}
+
+func Benchmark_M2S_EtNikBinngo_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		EtNikBinngo_MarshalUnmarshal(myMap1, &resultA)
+	}
+}
+
+func Benchmark_S2M_EtNikBinngo_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := map[string]any{}
+		EtNikBinngo_MarshalUnmarshal(myRow1, &resultA)
 	}
 }

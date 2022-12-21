@@ -21,6 +21,7 @@
 - github.com/hjson/hjson-go/v4
 - github.com/d-o-n-u-t-s/lz4msgpack
 - github.com/surrealdb/cork
+- github.com/et-nik/binngo
 
 ## TL;DR
 
@@ -65,6 +66,7 @@ Benchmark_M2S_KokizzuJson5b_MarshalUnmarshal-32        1987240   1711   ns/op   
 Benchmark_M2S_MongoDriverBson_MarshalUnmarshal-32      2083712   1719   ns/op     413 B/op   14 allocs/op
 Benchmark_M2S_MitchellhMapstructure_Decode-32          1988281   1750   ns/op     720 B/op   18 allocs/op
 Benchmark_M2S_EncodingJson_MarshalUnmarshal-32         2056944   1780   ns/op     600 B/op   16 allocs/op
+Benchmark_M2S_EtNikBinngo_MarshalUnmarshal-32          1813059   1965   ns/op     425 B/op   39 allocs/op
 Benchmark_M2S_PquernaFfjson_MarshalUnmarshal-32        1537023   2446   ns/op     600 B/op   16 allocs/op
 Benchmark_M2S_UngorjiGocodec_BincEncodeDecode-32       1000000   3221   ns/op    4340 B/op   23 allocs/op
 Benchmark_M2S_UngorjiGoCodec_CborEncodeDecode-32       1000000   3377   ns/op    4340 B/op   23 allocs/op
@@ -79,7 +81,7 @@ Benchmark_M2S_GoccyGoYaml_MarshalUnmarshal-32           194260  19278   ns/op   
 Benchmark_M2S_GhodssYaml_MarshalUnmarshal-32            152730  27637   ns/op   21344 B/op  160 allocs/op
 Benchmark_M2S_NaoinaToml_MarshalUnmarshal-32             42057  88518   ns/op  398393 B/op   77 allocs/op
 
-                                                       
+                                    
 Benchmark_S2M_GoccyGoJson_MarshalUnmarshal-32          4716292    769.7 ns/op     513 B/op   12 allocs/op
 Benchmark_S2M_MitchellhMapstructure_Decode-32          4160382    878.7 ns/op     536 B/op   12 allocs/op
 Benchmark_S2M_VmihailencoMspackV5_MarhsalUnmarshal-32  3700621    951.5 ns/op     606 B/op   12 allocs/op
@@ -89,6 +91,7 @@ Benchmark_S2M_SurrealdbCork_EncodeDecode-32            2806642   1289   ns/op   
 Benchmark_S2M_ShamatonMsgpackV2_MarshalUnmarshal-32    2669648   1291   ns/op     556 B/op   15 allocs/op
 Benchmark_S2M_EncodingJson_MarshalUnmarshal-32         1914165   1782   ns/op     688 B/op   18 allocs/op
 Benchmark_S2M_KokizzuJson5b_MarshalUnmarshal-32        1888774   1884   ns/op     960 B/op   20 allocs/op
+Benchmark_S2M_EtNikBinngo_MarshalUnmarshal-32          1586864   2260   ns/op     768 B/op   45 allocs/op
 Benchmark_S2M_PquernaFfjson_MarshalUnmarshal-32        1559665   2338   ns/op     689 B/op   18 allocs/op
 Benchmark_S2M_MongoDriverBson_MarshalUnmarshal-32      1476170   2668   ns/op     759 B/op   18 allocs/op
 Benchmark_S2M_PelletierGoTomlV2_MarshalUnmarshal-32    1000000   3687   ns/op    1800 B/op   31 allocs/op
