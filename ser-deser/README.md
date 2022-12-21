@@ -30,6 +30,7 @@
 go test -bench=.
 go test -bench=. -benchmem
 go test -bench=. -benchtime 3s
+go test -benchmem -benchtime=3s -bench=SpecificName
 ```
 
 ## How to add new test?
@@ -47,7 +48,7 @@ go test .
 ## Last Result?
 
 ```bash
-go test -bench=. -benchmem -benchtime=3s
+go test -benchmem -benchtime=3s -bench=.
 goos: linux
 goarch: amd64
 pkg: ser_deser 
@@ -56,7 +57,7 @@ Benchmark_M2S_GoccyGoJson_MarshalUnmarshal-32          6661932    517.4 ns/op   
 Benchmark_M2S_VmihailencoMspackV5_MarhsalUnmarshal-32  4572597    741.3 ns/op     188 B/op    5 allocs/op
 Benchmark_M2S_JsonIteratorGo_MarshalUnmarshal-32       4364426    831.2 ns/op     188 B/op    8 allocs/op
 Benchmark_M2S_FxamackerCbor_MarshalUnmarshal-32        3801982    853.6 ns/op     112 B/op    8 allocs/op
-Benchmark_M2S_ShamatonMsgpackV2_MarshalUnmarshal-32    3544892   1001   ns/op     188 B/op    5 allocs/op
+Benchmark_M2S_ShamatonMsgpackV2_MarshalUnmarshal-32    2567893   1379   ns/op     956 B/op   15 allocs/op
 Benchmark_M2S_KokizzuJson5b_MarshalUnmarshal-32        1987240   1711   ns/op     632 B/op   16 allocs/op
 Benchmark_M2S_MongoDriverBson_MarshalUnmarshal-32      2083712   1719   ns/op     413 B/op   14 allocs/op
 Benchmark_M2S_MitchellhMapstructure_Decode-32          1988281   1750   ns/op     720 B/op   18 allocs/op
@@ -79,7 +80,7 @@ Benchmark_S2M_MitchellhMapstructure_Decode-32          4160382    878.7 ns/op   
 Benchmark_S2M_VmihailencoMspackV5_MarhsalUnmarshal-32  3700621    951.5 ns/op     606 B/op   12 allocs/op
 Benchmark_S2M_JsonIteratorGo_MarshalUnmarshal-32       3411016   1072   ns/op     497 B/op   14 allocs/op
 Benchmark_S2M_FxamackerCbor_MarshalUnmarshal-32        3251618   1084   ns/op     444 B/op   11 allocs/op
-Benchmark_S2M_ShamatonMsgpackV2_MarshalUnmarshal-32    2758134   1265   ns/op     606 B/op   12 allocs/op
+Benchmark_S2M_ShamatonMsgpackV2_MarshalUnmarshal-32    2669648   1291   ns/op     556 B/op   15 allocs/op
 Benchmark_S2M_EncodingJson_MarshalUnmarshal-32         1914165   1782   ns/op     688 B/op   18 allocs/op
 Benchmark_S2M_KokizzuJson5b_MarshalUnmarshal-32        1888774   1884   ns/op     960 B/op   20 allocs/op
 Benchmark_S2M_PquernaFfjson_MarshalUnmarshal-32        1559665   2338   ns/op     689 B/op   18 allocs/op
@@ -95,7 +96,7 @@ Benchmark_S2M_GopkgInYamlV3_MarshalUnmarshal-32         246944  14790   ns/op   
 Benchmark_S2M_GoccyGoYaml_MarshalUnmarshal-32           193806  18297   ns/op    7574 B/op  202 allocs/op
 Benchmark_S2M_GhodssYaml_MarshalUnmarshal-32            129429  27043   ns/op   21407 B/op  160 allocs/op
 Benchmark_S2M_NaoinaToml_MarshalUnmarshal-32             58723  62006   ns/op  397936 B/op   75 allocs/op
-       
+
 PASS
 ```
 

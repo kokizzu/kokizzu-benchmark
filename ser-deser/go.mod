@@ -16,6 +16,7 @@ require (
 	github.com/naoina/toml v0.1.1
 	github.com/pelletier/go-toml/v2 v2.0.6
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7
+	github.com/shamaton/msgpack/v2 v2.1.1
 	github.com/ugorji/go/codec v1.2.7
 	github.com/vmihailenco/msgpack/v5 v5.3.5
 	go.mongodb.org/mongo-driver v1.11.1

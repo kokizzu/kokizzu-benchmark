@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/BurntSushi/toml"
+	burntoml "github.com/BurntSushi/toml"
 	notoml "github.com/naoina/toml"
 	gotomlv2 "github.com/pelletier/go-toml/v2"
 )
@@ -12,9 +12,9 @@ import (
 // github.com/BurntSushi/toml
 func BurntSushiToml_EncodeUnmarshal(in, out any) {
 	b := new(bytes.Buffer)
-	enc := toml.NewEncoder(b)
+	enc := burntoml.NewEncoder(b)
 	_ = enc.Encode(in)
-	_ = toml.Unmarshal(b.Bytes(), out)
+	_ = burntoml.Unmarshal(b.Bytes(), out)
 }
 func Benchmark_M2S_BurntSushiToml_EncodeUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {

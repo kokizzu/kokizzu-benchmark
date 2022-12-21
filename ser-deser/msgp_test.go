@@ -3,14 +3,15 @@ package main
 import (
 	"testing"
 
-	"github.com/vmihailenco/msgpack/v5"
+	msgpack2 "github.com/shamaton/msgpack/v2"
+	msgpack5 "github.com/vmihailenco/msgpack/v5"
 )
 
 // github.com/vmihailenco/msgpack/v5
 
 func VmihailencoMsgpackV5_MarhsalUnmarshal(in, out any) {
-	b, _ := msgpack.Marshal(in)
-	_ = msgpack.Unmarshal(b, out)
+	b, _ := msgpack5.Marshal(in)
+	_ = msgpack5.Unmarshal(b, out)
 }
 func Benchmark_M2S_Vmihailenco_MarhsalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
@@ -29,8 +30,8 @@ func Benchmark_S2M_Vmihailenco_MarhsalUnmarshal(b *testing.B) {
 // github.com/shamaton/msgpack/v2
 
 func ShamatonMsgpackV2_MarshalUnmarshal(in, out any) {
-	b, _ := msgpack.Marshal(in)
-	_ = msgpack.Unmarshal(b, out)
+	b, _ := msgpack2.Marshal(in)
+	_ = msgpack2.Unmarshal(b, out)
 }
 
 func Benchmark_M2S_ShamatonMsgpackV2_MarshalUnmarshal(b *testing.B) {

@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/ghodss/yaml"
+	ghyaml "github.com/ghodss/yaml"
 	goyaml "github.com/goccy/go-yaml"
 	yaml3 "gopkg.in/yaml.v3"
 )
@@ -56,8 +56,8 @@ func Benchmark_S2M_GopkgInYamlV3_MarshalUnmarshal(b *testing.B) {
 // the only library that doesn't require yaml tag on the struct
 
 func GhodssYaml_MarshalUnmarshal(in, out any) {
-	b, _ := yaml.Marshal(in)
-	_ = yaml.Unmarshal(b, out)
+	b, _ := ghyaml.Marshal(in)
+	_ = ghyaml.Unmarshal(b, out)
 }
 
 func Benchmark_M2S_GhodssYaml_MarshalUnmarshal(b *testing.B) {
