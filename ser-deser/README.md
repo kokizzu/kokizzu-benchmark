@@ -134,6 +134,7 @@ Yes
 - github.com/cristalhq/bencode
 - github.com/mprot/msgpack-go
 - github.com/arloliu/jsonpack
+- github.com/Itay2805/rawbin
 
 ## TODO
 
