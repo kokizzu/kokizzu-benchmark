@@ -120,6 +120,7 @@ Yes
 - github.com/mashingan/smapping
 - github.com/davecgh/go-xdr/xdr2
 - github.com/tinylib/msgp
+- github.com/mailru/easyjson
 
 ## TODO
 
