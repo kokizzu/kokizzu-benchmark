@@ -125,6 +125,7 @@ Yes
 - github.com/kelindar/binary
 - github.com/polydawn/refmt
 - github.com/renproject/surge
+- github.com/vipally/binary
 
 ## TODO
 
