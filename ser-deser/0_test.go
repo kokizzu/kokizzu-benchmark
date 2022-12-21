@@ -7,8 +7,8 @@ import (
 )
 
 type myStruct struct {
-	Name string `yaml:"Name" bson:"Name"`
-	Age  int64  `yaml:"Age" bson:"Age"`
+	Name string `yaml:"Name" bson:"Name" toml:"Name"`
+	Age  int64  `yaml:"Age" bson:"Age" toml:"Age"`
 }
 
 var myMap1 = map[string]any{
@@ -186,6 +186,14 @@ func TestVerify(t *testing.T) {
 		structMatch(t, &resultA)
 		resultB = map[string]any{}
 		MitchellhMapstructure_Decode(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("NaoinaToml_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		NaoinaToml_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		NaoinaToml_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 }

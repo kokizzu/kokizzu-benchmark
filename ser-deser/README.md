@@ -16,6 +16,8 @@
 - go.mongodb.org/mongo-driver/bson
 - github.com/BurntSushi/toml
 - github.com/pelletier/go-toml/v2
+- github.com/mitchellh/mapstructure
+- github.com/naoina/toml
 
 ## TL;DR
 
@@ -84,6 +86,8 @@ Benchmark_M2S_BurntSushiToml_EncodeUnmarshal-32         361131    9382 ns/op    
 Benchmark_S2M_BurntSushiToml_EncodeUnmarshal-32         368166   10156 ns/op    8222 B/op  72 allocs/op
 Benchmark_M2S_PelletierGoTomlV2_MarshalUnmarshal-32    1000000    3392 ns/op    1600 B/op  27 allocs/op
 Benchmark_S2M_PelletierGoTomlV2_MarshalUnmarshal-32    1000000    3687 ns/op    1800 B/op  31 allocs/op
+Benchmark_M2S_NaoinaToml_MarshalUnmarshal-32             42057   88518 ns/op  398393 B/op  77 allocs/op
+Benchmark_S2M_NaoinaToml_MarshalUnmarshal-32             58723   62006 ns/op  397936 B/op  75 allocs/op
 Benchmark_M2S_GhodssYaml_MarshalUnmarshal-32            152730   27637 ns/op   21344 B/op 160 allocs/op
 Benchmark_S2M_GhodssYaml_MarshalUnmarshal-32            129429   27043 ns/op   21407 B/op 160 allocs/op
 PASS
@@ -98,4 +102,4 @@ Yes
 
 ## TODO
 
-- for libraries that default doesn't have buffer pool add a `sync.Pool`
+- for libraries that default doesn't have buffer pool, add a `sync.Pool`

@@ -12,6 +12,7 @@ require (
 	github.com/kokizzu/gotro v1.2325.1708
 	github.com/kokizzu/json5b v0.0.0-20221007102810-943932938d0f
 	github.com/mitchellh/mapstructure v1.5.0
+	github.com/naoina/toml v0.1.1
 	github.com/pelletier/go-toml/v2 v2.0.6
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7
 	github.com/ugorji/go/codec v1.2.7
@@ -26,10 +27,12 @@ require (
 	github.com/kokizzu/rand v0.0.0-20221021123447-6043c55a8bad // indirect
 	github.com/kr/pretty v0.3.0 // indirect
 	github.com/kr/text v0.2.0 // indirect
+	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
+	github.com/naoina/go-stringutil v0.1.0 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
