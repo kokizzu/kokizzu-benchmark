@@ -119,6 +119,7 @@ Yes
 - github.com/jinzhu/copier
 - github.com/mashingan/smapping
 - github.com/davecgh/go-xdr/xdr2
+- github.com/tinylib/msgp
 
 ## TODO
 
