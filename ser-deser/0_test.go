@@ -164,6 +164,22 @@ func TestVerify(t *testing.T) {
 		MongoDriverBson_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
+	t.Run("BurntSushiToml_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		BurntSushiToml_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		BurntSushiToml_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
+	t.Run("PelletierGoTomlV2_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		PelletierGoTomlV2_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		PelletierGoTomlV2_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
 	//t.Run("DavecghGoXdrXdr2_MarshalUnmarshal", func(t *testing.T) {
 	//	resultA = myStruct{}
 	//	DavecghGoXdrXdr2_MarshalUnmarshal(myMap1, &resultA)

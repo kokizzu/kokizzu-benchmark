@@ -13,7 +13,9 @@
 - github.com/json-iterator/go
 - github.com/shamaton/msgpack/v2
 - github.com/pquerna/ffjson
-- go.mongodb.org/mongo-driver/bson 
+- go.mongodb.org/mongo-driver/bson
+- github.com/BurntSushi/toml
+- github.com/pelletier/go-toml/v2
 
 ## TL;DR
 
@@ -76,6 +78,10 @@ Benchmark_M2S_GoccyGoYaml_MarshalUnmarshal-32           194260   19278 ns/op    
 Benchmark_S2M_GoccyGoYaml_MarshalUnmarshal-32           193806   18297 ns/op    7574 B/op 202 allocs/op
 Benchmark_M2S_GopkgInYamlV3_MarshalUnmarshal-32         216579   16130 ns/op   14104 B/op  79 allocs/op
 Benchmark_S2M_GopkgInYamlV3_MarshalUnmarshal-32         246944   14790 ns/op   14392 B/op  80 allocs/op
+Benchmark_M2S_BurntSushiToml_MarshalUnmarshal-32        361131    9382 ns/op    7950 B/op  70 allocs/op
+Benchmark_S2M_BurntSushiToml_MarshalUnmarshal-32        368166   10156 ns/op    8222 B/op  72 allocs/op
+Benchmark_M2S_PelletierGoTomlV2_MarshalUnmarshal-32    1000000    3392 ns/op    1600 B/op  27 allocs/op
+Benchmark_S2M_PelletierGoTomlV2_MarshalUnmarshal-32    1000000    3687 ns/op    1800 B/op  31 allocs/op
 Benchmark_M2S_GhodssYaml_MarshalUnmarshal-32            152730   27637 ns/op   21344 B/op 160 allocs/op
 Benchmark_S2M_GhodssYaml_MarshalUnmarshal-32            129429   27043 ns/op   21407 B/op 160 allocs/op
 PASS
