@@ -11,6 +11,7 @@ require (
 	github.com/json-iterator/go v1.1.12
 	github.com/kokizzu/gotro v1.2325.1708
 	github.com/kokizzu/json5b v0.0.0-20221007102810-943932938d0f
+	github.com/mitchellh/mapstructure v1.5.0
 	github.com/pelletier/go-toml/v2 v2.0.6
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7
 	github.com/ugorji/go/codec v1.2.7

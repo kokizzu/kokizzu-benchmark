@@ -180,4 +180,12 @@ func TestVerify(t *testing.T) {
 		PelletierGoTomlV2_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
+	t.Run("MitchellhMapstructure_Decode", func(t *testing.T) {
+		resultA = myStruct{}
+		MitchellhMapstructure_Decode(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		MitchellhMapstructure_Decode(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
 }
