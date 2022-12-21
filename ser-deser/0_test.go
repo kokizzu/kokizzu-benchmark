@@ -228,4 +228,12 @@ func TestVerify(t *testing.T) {
 		EtNikBinngo_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
+	t.Run("IchibanTnetstrings_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		IchibanTnetstrings_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		IchibanTnetstrings_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
 }

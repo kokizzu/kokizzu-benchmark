@@ -38,6 +38,8 @@ github.com/hexops/gotextdiff v1.0.3 h1:gitA9+qJrrTCsiCl7+kh75nPqQt1cx4ZkudSTLoUq
 github.com/hexops/valast v1.4.1 h1:vlB+usah+MLacCyDDqACn2yhAoCDlpHYkpEKtej+RXE=
 github.com/hjson/hjson-go/v4 v4.3.0 h1:dyrzJdqqFGhHt+FSrs5n9s6b0fPM8oSJdWo+oS3YnJw=
 github.com/hjson/hjson-go/v4 v4.3.0/go.mod h1:KaYt3bTw3zhBjYqnXkYywcYctk0A2nxeEFTse3rH13E=
+github.com/ichiban/tnetstrings v0.0.0-20180422064249-a801545262c5 h1:cthuYdYeKZm/TS65x+9/QSX/amBH27qu6BUQyJEKzkA=
+github.com/ichiban/tnetstrings v0.0.0-20180422064249-a801545262c5/go.mod h1:UbwQxWvqvaIDi/eDUlgc/hbRU5cjMvtjB04F8kaNdWw=
 github.com/json-iterator/go v1.1.12 h1:PV8peI4a0ysnczrg+LtxykD8LfKY9ML6u2jnxaEnrnM=
 github.com/json-iterator/go v1.1.12/go.mod h1:e30LSqwooZae/UwlEbR2852Gd8hjQvJoHmT4TnhNGBo=
 github.com/jtolds/gls v4.20.0+incompatible h1:xdiiI2gbIgH/gLH7ADydsJ1uDOEzR8yvV7C0MuV77Wo=

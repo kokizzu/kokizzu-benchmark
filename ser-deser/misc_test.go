@@ -6,6 +6,7 @@ import (
 
 	"github.com/et-nik/binngo"
 	"github.com/fxamacker/cbor/v2"
+	"github.com/ichiban/tnetstrings"
 	"github.com/ugorji/go/codec"
 )
 
@@ -141,5 +142,27 @@ func Benchmark_S2M_EtNikBinngo_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
 		EtNikBinngo_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+// github.com/ichiban/tnetstrings
+
+func IchibanTnetstrings_MarshalUnmarshal(in, out any) {
+	b := new(bytes.Buffer)
+	_ = tnetstrings.NewEncoder(b).Encode(in)
+	_ = tnetstrings.NewDecoder(b).Decode(out)
+}
+
+func Benchmark_M2S_IchibanTnetstrings_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		IchibanTnetstrings_MarshalUnmarshal(myMap1, &resultA)
+	}
+}
+
+func Benchmark_S2M_IchibanTnetstrings_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := map[string]any{}
+		IchibanTnetstrings_MarshalUnmarshal(myRow1, &resultA)
 	}
 }

@@ -22,6 +22,7 @@
 - github.com/d-o-n-u-t-s/lz4msgpack
 - github.com/surrealdb/cork
 - github.com/et-nik/binngo
+- github.com/ichiban/tnetstrings
 
 ## TL;DR
 
@@ -73,6 +74,7 @@ Benchmark_M2S_UngorjiGoCodec_CborEncodeDecode-32       1000000   3377   ns/op   
 Benchmark_M2S_PelletierGoTomlV2_MarshalUnmarshal-32    1000000   3392   ns/op    1600 B/op   27 allocs/op
 Benchmark_M2S_UngorjiGocodec_SimpleEncodeDecode-32      984807   3521   ns/op    4340 B/op   23 allocs/op
 Benchmark_M2S_UngorjiGocodec_JsonEncodeDecode-32        941674   3932   ns/op    4956 B/op   25 allocs/op
+Benchmark_M2S_IchibanTnetstrings_MarshalUnmarshal-32    773697   5747   ns/op    9328 B/op   48 allocs/op
 Benchmark_M2S_BurntSushiToml_EncodeUnmarshal-32         361131   9382   ns/op    7950 B/op   70 allocs/op
 Benchmark_M2S_HjsonHjsonGoV4_MarshalUnmarshal-32        369955  12260   ns/op    3904 B/op   77 allocs/op
 Benchmark_M2S_GopkgInYamlV3_MarshalUnmarshal-32         216579  16130   ns/op   14104 B/op   79 allocs/op
@@ -81,7 +83,7 @@ Benchmark_M2S_GoccyGoYaml_MarshalUnmarshal-32           194260  19278   ns/op   
 Benchmark_M2S_GhodssYaml_MarshalUnmarshal-32            152730  27637   ns/op   21344 B/op  160 allocs/op
 Benchmark_M2S_NaoinaToml_MarshalUnmarshal-32             42057  88518   ns/op  398393 B/op   77 allocs/op
 
-                                    
+                       
 Benchmark_S2M_GoccyGoJson_MarshalUnmarshal-32          4716292    769.7 ns/op     513 B/op   12 allocs/op
 Benchmark_S2M_MitchellhMapstructure_Decode-32          4160382    878.7 ns/op     536 B/op   12 allocs/op
 Benchmark_S2M_VmihailencoMspackV5_MarhsalUnmarshal-32  3700621    951.5 ns/op     606 B/op   12 allocs/op
@@ -99,6 +101,7 @@ Benchmark_S2M_UngorjiGoCodec_CborEncodeDecode-32        823958   4117   ns/op   
 Benchmark_S2M_UngorjiGocodec_BincEncodeDecode-32        836186   4188   ns/op    4888 B/op   34 allocs/op
 Benchmark_S2M_UngorjiGocodec_SimpleEncodeDecode-32      771837   4243   ns/op    4888 B/op   34 allocs/op
 Benchmark_S2M_UngorjiGocodec_JsonEncodeDecode-32        731814   4685   ns/op    5504 B/op   36 allocs/op
+Benchmark_S2M_IchibanTnetstrings_MarshalUnmarshal-32    612975   5449   ns/op    9553 B/op   46 allocs/op
 Benchmark_S2M_BurntSushiToml_EncodeUnmarshal-32         368166  10156   ns/op    8222 B/op   72 allocs/op
 Benchmark_S2M_HjsonHjsonGoV4_MarshalUnmarshal-32        325735  10531   ns/op    3842 B/op   65 allocs/op
 Benchmark_S2M_GopkgInYamlV3_MarshalUnmarshal-32         246944  14790   ns/op   14392 B/op   80 allocs/op
