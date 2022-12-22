@@ -236,4 +236,12 @@ func TestVerify(t *testing.T) {
 		IchibanTnetstrings_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
+	t.Run("GopkgInMgoV2Bson_MarshalUnmarshal", func(t *testing.T) {
+		resultA = myStruct{}
+		GopkgInMgoV2Bson_MarshalUnmarshal(myMap1, &resultA)
+		structMatch(t, &resultA)
+		resultB = map[string]any{}
+		GopkgInMgoV2Bson_MarshalUnmarshal(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
 }

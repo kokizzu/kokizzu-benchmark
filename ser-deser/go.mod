@@ -24,6 +24,7 @@ require (
 	github.com/ugorji/go/codec v1.2.7
 	github.com/vmihailenco/msgpack/v5 v5.3.5
 	go.mongodb.org/mongo-driver v1.11.1
+	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 	gopkg.in/yaml.v3 v3.0.1
 )
 
