@@ -145,6 +145,7 @@ Yes
 - github.com/wwalexander/go-bencode
 - github.com/fengyoulin/schema
 - github.com/near/borsh-go
+- github.com/go-restruct/restruct
 
 ## TODO
 
