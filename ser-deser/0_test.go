@@ -1,7 +1,6 @@
 package main
 
 import (
-	"math"
 	"testing"
 
 	"github.com/kokizzu/gotro/M"
@@ -13,7 +12,7 @@ type myStruct struct {
 }
 
 const name = "Tony"
-const age = math.MaxInt64
+const age = 123 // math.MaxInt64
 
 var myMap1 = map[string]any{
 	"Name": name,
