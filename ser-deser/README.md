@@ -147,6 +147,7 @@ Yes
 - github.com/near/borsh-go
 - github.com/go-restruct/restruct
 - github.com/dedis/protobuf
+- github.com/linkedin/goavro/v2
 
 ## TODO
 
