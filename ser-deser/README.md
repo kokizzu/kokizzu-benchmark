@@ -150,6 +150,9 @@ Yes
 - github.com/go-restruct/restruct
 - github.com/dedis/protobuf
 - github.com/linkedin/goavro/v2
+- encoding/asn1
+- encoding/gob
+- encoding/xml
 
 ## TODO
 
