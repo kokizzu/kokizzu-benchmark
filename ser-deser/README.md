@@ -146,6 +146,7 @@ Yes
 - github.com/fengyoulin/schema
 - github.com/near/borsh-go
 - github.com/go-restruct/restruct
+- github.com/dedis/protobuf
 
 ## TODO
 
