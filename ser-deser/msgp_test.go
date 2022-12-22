@@ -15,14 +15,14 @@ func VmihailencoMsgpackV5_MarhsalUnmarshal(in, out any) {
 	b, _ := msgpack5.Marshal(in)
 	_ = msgpack5.Unmarshal(b, out)
 }
-func Benchmark_M2S_Vmihailenco_MarhsalUnmarshal(b *testing.B) {
+func Benchmark_M2S_VmihailencoMspackV5_MarhsalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := myStruct{}
 		VmihailencoMsgpackV5_MarhsalUnmarshal(myMap1, &resultA)
 	}
 }
 
-func Benchmark_S2M_Vmihailenco_MarhsalUnmarshal(b *testing.B) {
+func Benchmark_S2M_VmihailencoMspackV5_MarhsalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
 		VmihailencoMsgpackV5_MarhsalUnmarshal(myRow1, &resultA)

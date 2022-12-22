@@ -56,13 +56,11 @@ go test -benchmem -benchtime=3s -bench=.
 goos: linux
 goarch: amd64
 pkg: ser_deser 
- 
                                    map to struct    total ns/op   B/op allocs/op
              M2S_GoccyGoJson_MarshalUnmarshal-32  6661932   517     80   3
      M2S_VmihailencoMspackV5_MarhsalUnmarshal-32  4572597   741    188   5
           M2S_JsonIteratorGo_MarshalUnmarshal-32  4364426   831    188   8
            M2S_FxamackerCbor_MarshalUnmarshal-32  3801982   854    112   8
-             M2S_Vmihailenco_MarhsalUnmarshal-32  3438524  1035    188   5
                M2S_SurrealdbCork_EncodeDecode-32  3105571  1155   1217   6
         M2S_GopkgInMgoV2Bson_MarshalUnmarshal-32  3125451  1181    232  13
        M2S_ShamatonMsgpackV2_MarshalUnmarshal-32  2567893  1379    956  15
@@ -81,7 +79,7 @@ pkg: ser_deser
            M2S_BurntSushiToml_EncodeUnmarshal-32   361131  9382   7950  70
           M2S_HjsonHjsonGoV4_MarshalUnmarshal-32   369955 12260   3904  77
            M2S_GopkgInYamlV3_MarshalUnmarshal-32   260914 15408  14112  80
-        M2S_DONUTSLz4Msgpack_MarshalUnmarshal-32   247033 17272   1271  16
+        M2S_DONUTSLz4Msgpack_MarshalUnmarshal-32   216382 16634   1249  16
              M2S_GoccyGoYaml_MarshalUnmarshal-32   194260 19278   7815 214
               M2S_GhodssYaml_MarshalUnmarshal-32   152730 27637  21344 160
               M2S_NaoinaToml_MarshalUnmarshal-32    48402 67834 398544  77
@@ -92,7 +90,6 @@ pkg: ser_deser
      S2M_VmihailencoMspackV5_MarhsalUnmarshal-32  3700621   952    606  12
           S2M_JsonIteratorGo_MarshalUnmarshal-32  3411016  1072    497  14
            S2M_FxamackerCbor_MarshalUnmarshal-32  3251618  1084    444  11
-             S2M_Vmihailenco_MarhsalUnmarshal-32  2886090  1120    607  12
                S2M_SurrealdbCork_EncodeDecode-32  2806642  1289   1611  12
        S2M_ShamatonMsgpackV2_MarshalUnmarshal-32  2669648  1291    556  15
         S2M_GopkgInMgoV2Bson_MarshalUnmarshal-32  2769507  1299    528  15
