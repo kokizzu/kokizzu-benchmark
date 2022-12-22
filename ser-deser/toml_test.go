@@ -12,8 +12,7 @@ import (
 // github.com/BurntSushi/toml
 func BurntSushiToml_EncodeUnmarshal(in, out any) {
 	b := new(bytes.Buffer)
-	enc := burntoml.NewEncoder(b)
-	_ = enc.Encode(in)
+	_ = burntoml.NewEncoder(b).Encode(in)
 	_ = burntoml.Unmarshal(b.Bytes(), out)
 }
 func Benchmark_M2S_BurntSushiToml_EncodeUnmarshal(b *testing.B) {

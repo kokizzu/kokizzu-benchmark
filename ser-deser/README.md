@@ -83,7 +83,7 @@ Benchmark_M2S_GoccyGoYaml_MarshalUnmarshal-32           194260  19278   ns/op   
 Benchmark_M2S_GhodssYaml_MarshalUnmarshal-32            152730  27637   ns/op   21344 B/op  160 allocs/op
 Benchmark_M2S_NaoinaToml_MarshalUnmarshal-32             42057  88518   ns/op  398393 B/op   77 allocs/op
 
-                       
+
 Benchmark_S2M_GoccyGoJson_MarshalUnmarshal-32          4716292    769.7 ns/op     513 B/op   12 allocs/op
 Benchmark_S2M_MitchellhMapstructure_Decode-32          4160382    878.7 ns/op     536 B/op   12 allocs/op
 Benchmark_S2M_VmihailencoMspackV5_MarhsalUnmarshal-32  3700621    951.5 ns/op     606 B/op   12 allocs/op
@@ -144,6 +144,7 @@ Yes
 - github.com/superp00t/etc
 - github.com/wwalexander/go-bencode
 - github.com/fengyoulin/schema
+- github.com/near/borsh-go
 
 ## TODO
 

@@ -15,10 +15,8 @@ import (
 func UngorjiGoCodec_CborEncodeDecode(in, out any) {
 	h := new(codec.CborHandle)
 	b := new(bytes.Buffer)
-	enc := codec.NewEncoder(b, h)
-	dec := codec.NewDecoder(b, h)
-	_ = enc.Encode(in)
-	_ = dec.Decode(out)
+	_ = codec.NewEncoder(b, h).Encode(in)
+	_ = codec.NewDecoder(b, h).Decode(out)
 }
 
 func Benchmark_M2S_UngorjiGoCodec_CborEncodeDecode(b *testing.B) {
@@ -38,10 +36,8 @@ func Benchmark_S2M_UngorjiGoCodec_CborEncodeDecode(b *testing.B) {
 func UngorjiGocodec_BincEncodeDecode(in, out any) {
 	h := new(codec.BincHandle)
 	b := new(bytes.Buffer)
-	enc := codec.NewEncoder(b, h)
-	dec := codec.NewDecoder(b, h)
-	_ = enc.Encode(in)
-	_ = dec.Decode(out)
+	_ = codec.NewEncoder(b, h).Encode(in)
+	_ = codec.NewDecoder(b, h).Decode(out)
 }
 
 func Benchmark_M2S_UngorjiGocodec_BincEncodeDecode(b *testing.B) {
@@ -61,10 +57,8 @@ func Benchmark_S2M_UngorjiGocodec_BincEncodeDecode(b *testing.B) {
 func UngorjiGocodec_JsonEncodeDecode(in, out any) {
 	h := new(codec.JsonHandle)
 	b := new(bytes.Buffer)
-	enc := codec.NewEncoder(b, h)
-	dec := codec.NewDecoder(b, h)
-	_ = enc.Encode(in)
-	_ = dec.Decode(out)
+	_ = codec.NewEncoder(b, h).Encode(in)
+	_ = codec.NewDecoder(b, h).Decode(out)
 }
 
 func Benchmark_M2S_UngorjiGocodec_JsonEncodeDecode(b *testing.B) {
@@ -84,10 +78,8 @@ func Benchmark_S2M_UngorjiGocodec_JsonEncodeDecode(b *testing.B) {
 func UngorjiGocodec_SimpleEncodeDecode(in, out any) {
 	h := new(codec.SimpleHandle)
 	b := new(bytes.Buffer)
-	enc := codec.NewEncoder(b, h)
-	dec := codec.NewDecoder(b, h)
-	_ = enc.Encode(in)
-	_ = dec.Decode(out)
+	_ = codec.NewEncoder(b, h).Encode(in)
+	_ = codec.NewDecoder(b, h).Decode(out)
 }
 
 func Benchmark_M2S_UngorjiGocodec_SimpleEncodeDecode(b *testing.B) {
