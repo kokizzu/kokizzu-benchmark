@@ -18,7 +18,7 @@ func GoccyGoYaml_MarshalUnmarshal(in, out any) {
 
 func Benchmark_M2S_GoccyGoYaml_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		resultA := myStruct{}
+		resultA := myStructYaml{}
 		GoccyGoYaml_MarshalUnmarshal(myMap1, &resultA)
 	}
 }
@@ -40,7 +40,7 @@ func GopkgInYamlV3_MarshalUnmarshal(in, out any) {
 
 func Benchmark_M2S_GopkgInYamlV3_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		resultA := myStruct{}
+		resultA := myStructYaml{}
 		GopkgInYamlV3_MarshalUnmarshal(myMap1, &resultA)
 	}
 }

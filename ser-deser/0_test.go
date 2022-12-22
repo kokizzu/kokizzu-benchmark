@@ -7,8 +7,47 @@ import (
 )
 
 type myStruct struct {
-	Name string `yaml:"Name" bson:"Name" toml:"Name"`
-	Age  int64  `yaml:"Age" bson:"Age" toml:"Age"`
+	Name string
+	Age  int64
+}
+
+func (m *myStruct) Match(t *testing.T) {
+	if m == nil || m.Name != name || m.Age != age {
+		t.Errorf("value mismatched: %v", *m)
+	}
+}
+
+type myStructYaml struct {
+	Name string `yaml:"Name"`
+	Age  int64  `yaml:"Age"`
+}
+
+func (m *myStructYaml) Match(t *testing.T) {
+	if m == nil || m.Name != name || m.Age != age {
+		t.Errorf("value mismatched: %v", *m)
+	}
+}
+
+type myStructBson struct {
+	Name string `bson:"Name"`
+	Age  int64  `bson:"Age"`
+}
+
+func (m *myStructBson) Match(t *testing.T) {
+	if m == nil || m.Name != name || m.Age != age {
+		t.Errorf("value mismatched: %v", *m)
+	}
+}
+
+type myStructToml struct {
+	Name string `toml:"Name"`
+	Age  int64  `toml:"Age"`
+}
+
+func (m *myStructToml) Match(t *testing.T) {
+	if m == nil || m.Name != name || m.Age != age {
+		t.Errorf("value mismatched: %v", *m)
+	}
 }
 
 const name = "Tony"
@@ -23,10 +62,19 @@ var myRow1 = myStruct{
 	Age:  age,
 }
 
-func structMatch(t *testing.T, m *myStruct) {
-	if m.Name != name || m.Age != age {
-		t.Errorf("value mismatched: %v", *m)
-	}
+var myRowYaml = myStructYaml{
+	Name: name,
+	Age:  age,
+}
+
+var myRowBson = myStructBson{
+	Name: name,
+	Age:  age,
+}
+
+var myRowToml = myStructToml{
+	Name: name,
+	Age:  age,
 }
 
 func mapMatch(t *testing.T, m map[string]any) {
@@ -37,213 +85,211 @@ func mapMatch(t *testing.T, m map[string]any) {
 }
 
 func TestVerify(t *testing.T) {
-	var resultA myStruct
-	var resultB map[string]any
 	t.Run("EncodingJson_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		EncodingJson_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		EncodingJson_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("KokizzuJson5b_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		KokizzuJson5b_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		KokizzuJson5b_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("GoccyGoJson_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		GoccyGoJson_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		GoccyGoJson_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("VmihailencoMsgpackV5_MarhsalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		VmihailencoMsgpackV5_MarhsalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		VmihailencoMsgpackV5_MarhsalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("FxamackerCbor_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		FxamackerCbor_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		FxamackerCbor_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("GoccyGoYaml_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStructYaml{}
 		GoccyGoYaml_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		GoccyGoYaml_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("GopkgInYamlV3_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStructYaml{}
 		GopkgInYamlV3_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		GopkgInYamlV3_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("GhodssYaml_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		GhodssYaml_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		GhodssYaml_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("UngorjiGoCodec_CborEncodeDecode", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		UngorjiGoCodec_CborEncodeDecode(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		UngorjiGoCodec_CborEncodeDecode(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("UngorjiGocodec_BincEncodeDecode", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		UngorjiGocodec_BincEncodeDecode(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		UngorjiGocodec_BincEncodeDecode(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("UngorjiGocodec_JsonEncodeDecode", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		UngorjiGocodec_JsonEncodeDecode(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		UngorjiGocodec_JsonEncodeDecode(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("UngorjiGocodec_SimpleEncodeDecode", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		UngorjiGocodec_SimpleEncodeDecode(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		UngorjiGocodec_SimpleEncodeDecode(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("JsonIteratorGo_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		JsonIteratorGo_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		JsonIteratorGo_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("ShamatonMsgpackV2_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		ShamatonMsgpackV2_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		ShamatonMsgpackV2_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("PquernaFfjson_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		PquernaFfjson_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		PquernaFfjson_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("MongoDriverBson_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStructBson{}
 		MongoDriverBson_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		MongoDriverBson_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("BurntSushiToml_EncodeUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		BurntSushiToml_EncodeUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		BurntSushiToml_EncodeUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("PelletierGoTomlV2_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		PelletierGoTomlV2_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		PelletierGoTomlV2_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("MitchellhMapstructure_Decode", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		MitchellhMapstructure_Decode(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		MitchellhMapstructure_Decode(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("NaoinaToml_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStructToml{}
 		NaoinaToml_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		NaoinaToml_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("HjsonHjsonGoV4_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		HjsonHjsonGoV4_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		HjsonHjsonGoV4_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("DONUTSLz4Msgpack_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		DONUTSLz4Msgpack_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		DONUTSLz4Msgpack_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("SurrealdbCork_EncodeDecode", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		SurrealdbCork_EncodeDecode(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		SurrealdbCork_EncodeDecode(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("EtNikBinngo_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		EtNikBinngo_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		EtNikBinngo_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("IchibanTnetstrings_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStruct{}
 		IchibanTnetstrings_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		IchibanTnetstrings_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})
 	t.Run("GopkgInMgoV2Bson_MarshalUnmarshal", func(t *testing.T) {
-		resultA = myStruct{}
+		resultA := myStructBson{}
 		GopkgInMgoV2Bson_MarshalUnmarshal(myMap1, &resultA)
-		structMatch(t, &resultA)
-		resultB = map[string]any{}
+		resultA.Match(t)
+		resultB := map[string]any{}
 		GopkgInMgoV2Bson_MarshalUnmarshal(resultA, &resultB)
 		mapMatch(t, resultB)
 	})

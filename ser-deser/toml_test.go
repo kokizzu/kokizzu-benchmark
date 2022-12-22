@@ -59,7 +59,7 @@ func NaoinaToml_MarshalUnmarshal(in, out any) {
 
 func Benchmark_M2S_NaoinaToml_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		resultA := myStruct{}
+		resultA := myStructToml{}
 		NaoinaToml_MarshalUnmarshal(myMap1, &resultA)
 	}
 }

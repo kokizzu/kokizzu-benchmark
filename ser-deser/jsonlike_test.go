@@ -18,7 +18,7 @@ func MongoDriverBson_MarshalUnmarshal(in, out any) {
 
 func Benchmark_M2S_MongoDriverBson_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		resultA := myStruct{}
+		resultA := myStructBson{}
 		MongoDriverBson_MarshalUnmarshal(myMap1, &resultA)
 	}
 }
@@ -60,7 +60,7 @@ func GopkgInMgoV2Bson_MarshalUnmarshal(in, out any) {
 
 func Benchmark_M2S_GopkgInMgoV2Bson_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		resultA := myStruct{}
+		resultA := myStructBson{}
 		GopkgInMgoV2Bson_MarshalUnmarshal(myMap1, &resultA)
 	}
 }
