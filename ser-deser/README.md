@@ -26,7 +26,7 @@
 
 ## TL;DR
 
-- `goccy/go-json` the fastest
+- `goccy/go-json` the fastest, but if you need to store integer more than the JSON standard (2^53), then  `vmihailenco/msgpack/v5` is the fastest.
 
 ## How to run?
 

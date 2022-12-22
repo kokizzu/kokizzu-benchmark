@@ -1,6 +1,7 @@
 package main
 
 import (
+	"math"
 	"testing"
 
 	"github.com/kokizzu/gotro/M"
@@ -11,24 +12,27 @@ type myStruct struct {
 	Age  int64  `yaml:"Age" bson:"Age" toml:"Age"`
 }
 
+const name = "Tony"
+const age = math.MaxInt64
+
 var myMap1 = map[string]any{
-	"Name": "Tony",
-	"Age":  23,
+	"Name": name,
+	"Age":  age,
 }
 var myRow1 = myStruct{
-	Name: "Tony",
-	Age:  23,
+	Name: name,
+	Age:  age,
 }
 
 func structMatch(t *testing.T, m *myStruct) {
-	if m.Name != "Tony" || m.Age != 23 {
+	if m.Name != name || m.Age != age {
 		t.Errorf("value mismatched: %v", *m)
 	}
 }
 
 func mapMatch(t *testing.T, m map[string]any) {
 	m2 := M.SX(m)
-	if m2.GetStr("Name") != "Tony" || m2.GetInt("Age") != 23 {
+	if m2.GetStr("Name") != name || m2.GetInt("Age") != age {
 		t.Errorf("value mismatched: %v", m)
 	}
 }
