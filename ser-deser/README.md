@@ -64,10 +64,10 @@ pkg: ser_deser
           M2S_JsonIteratorGo_MarshalUnmarshal-32  4892611   724    196   8
      M2S_VmihailencoMspackV5_MarhsalUnmarshal-32  4572597   741    188   5
            M2S_FxamackerCbor_MarshalUnmarshal-32  4598559   800    120   8
+               M2S_SurrealdbCork_EncodeDecode-32  3080282  1080   1217   6
         M2S_GopkgInMgoV2Bson_MarshalUnmarshal-32  3227905  1092    232  13
-               M2S_SurrealdbCork_EncodeDecode-32  3374707  1124   1217   6
        M2S_ShamatonMsgpackV2_MarshalUnmarshal-32  3062677  1161    956  15
-             M2S_MitchellhMapstructure_Decode-32  2474826  1424    720  18
+             M2S_MitchellhMapstructure_Decode-32  2487428  1395    720  18
          M2S_MongoDriverBson_MarshalUnmarshal-32  2477983  1459    414  14
            M2S_KokizzuJson5b_MarshalUnmarshal-32  1987240  1711    632  16
             M2S_EncodingJson_MarshalUnmarshal-32  2056944  1780    600  16
@@ -114,7 +114,6 @@ pkg: ser_deser
              S2M_GoccyGoYaml_MarshalUnmarshal-32   230042 14919   7580 202
               S2M_GhodssYaml_MarshalUnmarshal-32   151023 22682  21441 161
               S2M_NaoinaToml_MarshalUnmarshal-32    60916 52047 398112  80
-
 
 PASS
 ```
