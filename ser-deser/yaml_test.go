@@ -28,6 +28,12 @@ func Benchmark_S2M_GoccyGoYaml_MarshalUnmarshal(b *testing.B) {
 		GoccyGoYaml_MarshalUnmarshal(myRow1, &resultA)
 	}
 }
+func Benchmark_S2S_GoccyGoYaml_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStructYaml{}
+		GoccyGoYaml_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
 
 // gopkg.in/yaml.v3
 // require yaml tag on the struct
@@ -52,6 +58,13 @@ func Benchmark_S2M_GopkgInYamlV3_MarshalUnmarshal(b *testing.B) {
 	}
 }
 
+func Benchmark_S2S_GopkgInYamlV3_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStructYaml{}
+		GopkgInYamlV3_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
 // github.com/ghodss/yaml
 // the only library that doesn't require yaml tag on the struct
 
@@ -70,6 +83,13 @@ func Benchmark_M2S_GhodssYaml_MarshalUnmarshal(b *testing.B) {
 func Benchmark_S2M_GhodssYaml_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
+		GhodssYaml_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+func Benchmark_S2S_GhodssYaml_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
 		GhodssYaml_MarshalUnmarshal(myRow1, &resultA)
 	}
 }

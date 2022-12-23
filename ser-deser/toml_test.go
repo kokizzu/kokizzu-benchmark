@@ -27,6 +27,12 @@ func Benchmark_S2M_BurntSushiToml_EncodeUnmarshal(b *testing.B) {
 		BurntSushiToml_EncodeUnmarshal(myRow1, &resultA)
 	}
 }
+func Benchmark_S2S_BurntSushiToml_EncodeUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		BurntSushiToml_EncodeUnmarshal(myRow1, &resultA)
+	}
+}
 
 // github.com/pelletier/go-toml/v2
 
@@ -49,6 +55,13 @@ func Benchmark_S2M_PelletierGoTomlV2_MarshalUnmarshal(b *testing.B) {
 	}
 }
 
+func Benchmark_S2S_PelletierGoTomlV2_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		PelletierGoTomlV2_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
 // github.com/naoina/toml
 // requires toml tag on struct fields
 
@@ -67,6 +80,13 @@ func Benchmark_M2S_NaoinaToml_MarshalUnmarshal(b *testing.B) {
 func Benchmark_S2M_NaoinaToml_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
+		NaoinaToml_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+func Benchmark_S2S_NaoinaToml_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStructToml{}
 		NaoinaToml_MarshalUnmarshal(myRow1, &resultA)
 	}
 }

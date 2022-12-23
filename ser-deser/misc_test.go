@@ -32,6 +32,12 @@ func Benchmark_S2M_UngorjiGoCodec_CborEncodeDecode(b *testing.B) {
 		UngorjiGoCodec_CborEncodeDecode(myRow1, &resultA)
 	}
 }
+func Benchmark_S2S_UngorjiGoCodec_CborEncodeDecode(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		UngorjiGoCodec_CborEncodeDecode(myRow1, &resultA)
+	}
+}
 
 func UngorjiGocodec_BincEncodeDecode(in, out any) {
 	h := new(codec.BincHandle)
@@ -50,6 +56,12 @@ func Benchmark_M2S_UngorjiGocodec_BincEncodeDecode(b *testing.B) {
 func Benchmark_S2M_UngorjiGocodec_BincEncodeDecode(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
+		UngorjiGocodec_BincEncodeDecode(myRow1, &resultA)
+	}
+}
+func Benchmark_S2S_UngorjiGocodec_BincEncodeDecode(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
 		UngorjiGocodec_BincEncodeDecode(myRow1, &resultA)
 	}
 }
@@ -74,6 +86,12 @@ func Benchmark_S2M_UngorjiGocodec_JsonEncodeDecode(b *testing.B) {
 		UngorjiGocodec_JsonEncodeDecode(myRow1, &resultA)
 	}
 }
+func Benchmark_S2S_UngorjiGocodec_JsonEncodeDecode(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		UngorjiGocodec_JsonEncodeDecode(myRow1, &resultA)
+	}
+}
 
 func UngorjiGocodec_SimpleEncodeDecode(in, out any) {
 	h := new(codec.SimpleHandle)
@@ -95,6 +113,12 @@ func Benchmark_S2M_UngorjiGocodec_SimpleEncodeDecode(b *testing.B) {
 		UngorjiGocodec_SimpleEncodeDecode(myRow1, &resultA)
 	}
 }
+func Benchmark_S2S_UngorjiGocodec_SimpleEncodeDecode(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		UngorjiGocodec_SimpleEncodeDecode(myRow1, &resultA)
+	}
+}
 
 // github.com/fxamacker/cbor/v2
 
@@ -112,6 +136,12 @@ func Benchmark_M2S_FxamackerCbor_MarshalUnmarshal(b *testing.B) {
 func Benchmark_S2M_FxamackerCbor_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
+		FxamackerCbor_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+func Benchmark_S2S_FxamackerCbor_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
 		FxamackerCbor_MarshalUnmarshal(myRow1, &resultA)
 	}
 }
@@ -137,6 +167,13 @@ func Benchmark_S2M_EtNikBinngo_MarshalUnmarshal(b *testing.B) {
 	}
 }
 
+func Benchmark_S2S_EtNikBinngo_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		EtNikBinngo_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
 // github.com/ichiban/tnetstrings
 
 func IchibanTnetstrings_MarshalUnmarshal(in, out any) {
@@ -155,6 +192,13 @@ func Benchmark_M2S_IchibanTnetstrings_MarshalUnmarshal(b *testing.B) {
 func Benchmark_S2M_IchibanTnetstrings_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
+		IchibanTnetstrings_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+func Benchmark_S2S_IchibanTnetstrings_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
 		IchibanTnetstrings_MarshalUnmarshal(myRow1, &resultA)
 	}
 }

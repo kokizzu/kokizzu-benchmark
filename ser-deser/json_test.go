@@ -30,6 +30,13 @@ func Benchmark_S2M_EncodingJson_MarshalUnmarshal(b *testing.B) {
 	}
 }
 
+func Benchmark_S2S_EncodingJson_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		EncodingJson_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
 // github.com/kokizzu/json5b
 
 func KokizzuJson5b_MarshalUnmarshal(in, out any) {
@@ -46,6 +53,12 @@ func Benchmark_M2S_KokizzuJson5b_MarshalUnmarshal(b *testing.B) {
 func Benchmark_S2M_KokizzuJson5b_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
+		KokizzuJson5b_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+func Benchmark_S2S_KokizzuJson5b_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
 		KokizzuJson5b_MarshalUnmarshal(myRow1, &resultA)
 	}
 }
@@ -67,6 +80,12 @@ func Benchmark_M2S_GoccyGoJson_MarshalUnmarshal(b *testing.B) {
 func Benchmark_S2M_GoccyGoJson_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
+		GoccyGoJson_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+func Benchmark_S2S_GoccyGoJson_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
 		GoccyGoJson_MarshalUnmarshal(myRow1, &resultA)
 	}
 }
@@ -92,6 +111,13 @@ func Benchmark_S2M_JsonIteratorGo_MarshalUnmarshal(b *testing.B) {
 	}
 }
 
+func Benchmark_S2S_JsonIteratorGo_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		JsonIteratorGo_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
 // github.com/pquerna/ffjson/ffjson
 
 func PquernaFfjson_MarshalUnmarshal(in, out any) {
@@ -109,6 +135,13 @@ func Benchmark_M2S_PquernaFfjson_MarshalUnmarshal(b *testing.B) {
 func Benchmark_S2M_PquernaFfjson_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
+		PquernaFfjson_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+func Benchmark_S2S_PquernaFfjson_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
 		PquernaFfjson_MarshalUnmarshal(myRow1, &resultA)
 	}
 }
