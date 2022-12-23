@@ -50,8 +50,8 @@ func (m myStructToml) Match(t *testing.T) {
 	}
 }
 
-const name = "Tony"
-const age = 123 // math.MaxInt64
+const name = `Tony` // "1234567890123456789012345678901234567890123456789012345678901234567890"
+const age = 123     // math.MaxInt64
 
 var myMap1 = map[string]any{
 	"Name": name,
@@ -92,9 +92,11 @@ func testFunc[T matcher](t *testing.T, f func(in, out any)) {
 	var resultA T
 	f(myMap1, &resultA)
 	resultA.Match(t)
+
 	resultB := map[string]any{}
 	f(resultA, &resultB)
 	mapMatch(t, resultB)
+
 	var resultC T
 	f(resultA, &resultC)
 	resultC.Match(t)

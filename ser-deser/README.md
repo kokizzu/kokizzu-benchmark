@@ -1,28 +1,30 @@
 
 # Map/Struct Serialization-Deserialization Benchmark
 
-- encoding/json
-- github.com/kokizzu/json5b/encoding/json5b
-- github.com/goccy/go-json
+- encoding/json *
+- github.com/kokizzu/json5b/encoding/json5b *
+- github.com/goccy/go-json *
 - github.com/vmihailenco/msgpack/v5
 - github.com/fxamacker/cbor/v2
 - gopkg.in/yaml.v3
-- github.com/ghodss/yaml
+- github.com/ghodss/yaml *
 - github.com/goccy/go-yaml
 - github.com/ugorji/go/codec
-- github.com/json-iterator/go
+- github.com/json-iterator/go *
 - github.com/shamaton/msgpack/v2
-- github.com/pquerna/ffjson
+- github.com/pquerna/ffjson *
 - go.mongodb.org/mongo-driver/bson
 - github.com/BurntSushi/toml
 - github.com/pelletier/go-toml/v2
 - github.com/mitchellh/mapstructure
 - github.com/naoina/toml
-- github.com/hjson/hjson-go/v4
+- github.com/hjson/hjson-go/v4 *
 - github.com/d-o-n-u-t-s/lz4msgpack
 - github.com/surrealdb/cork
 - github.com/et-nik/binngo
 - github.com/ichiban/tnetstrings
+
+* = not safe for >2^53
 
 ## TL;DR
 
