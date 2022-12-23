@@ -81,6 +81,10 @@ func main() {
 			continue
 		}
 
+		if row.RunCount <= 0 || row.Duration <= 0 {
+			continue
+		}
+
 		if S.StartsWith(row.TestName, "M2S_") {
 			map2struct = append(map2struct, row)
 		} else if S.StartsWith(row.TestName, `S2M_`) {

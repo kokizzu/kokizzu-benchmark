@@ -26,7 +26,7 @@
 
 ## TL;DR
 
-- `goccy/go-json` the fastest, but if you need to store integer more than the JSON standard (2^53), then  `vmihailenco/msgpack/v5` is the fastest.
+- `goccy/go-json` the fastest on all use case, but if you need to store integer more than the JSON standard (2^53), then  `vmihailenco/msgpack/v5` on average is the fastest and best for map to struct use case. `mitchellh/mapstructure` the best for struct to map use case, and `shamaton/msgpack/v2` the best for struct to struct use case.
 
 ## How to run?
 
@@ -116,7 +116,6 @@ pkg: ser_deser
               S2M_NaoinaToml_MarshalUnmarshal-32    60916 52047 398112  80
 
                                 struct to struct    total ns/op   B/op allocs/op
-                                              go        0     0      0   0
              S2S_GoccyGoJson_MarshalUnmarshal-32 12046497   317    112   4
        S2S_ShamatonMsgpackV2_MarshalUnmarshal-32  7897488   458    148   6
           S2S_JsonIteratorGo_MarshalUnmarshal-32  7853592   494     92   6
