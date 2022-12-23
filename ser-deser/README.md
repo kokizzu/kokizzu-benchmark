@@ -118,6 +118,7 @@ pkg: ser_deser
               S2M_NaoinaToml_MarshalUnmarshal-32    60916 52047 398112  80
 
                                 struct to struct    total ns/op   B/op allocs/op
+             S2S_MitchellhMapstructure_Decode-32 17987224   181    136   4
              S2S_GoccyGoJson_MarshalUnmarshal-32 12046497   317    112   4
        S2S_ShamatonMsgpackV2_MarshalUnmarshal-32  7897488   458    148   6
           S2S_JsonIteratorGo_MarshalUnmarshal-32  7853592   494     92   6

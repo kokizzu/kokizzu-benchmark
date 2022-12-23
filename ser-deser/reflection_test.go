@@ -25,3 +25,10 @@ func Benchmark_S2M_MitchellhMapstructure_Decode(b *testing.B) {
 		MitchellhMapstructure_Decode(myRow1, &resultA)
 	}
 }
+
+func Benchmark_S2S_MitchellhMapstructure_Decode(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		MitchellhMapstructure_Decode(myRow1, &resultA)
+	}
+}
