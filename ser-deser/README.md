@@ -1,6 +1,8 @@
 
 # Map/Struct Serialization-Deserialization Benchmark
 
+https://kokizzu.blogspot.com/2022/12/map-to-struct-and-struct-to-map-golang.html
+
 - encoding/json *
 - github.com/kokizzu/json5b/encoding/json5b *
 - github.com/goccy/go-json *
