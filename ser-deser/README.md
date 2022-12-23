@@ -30,7 +30,7 @@ https://kokizzu.blogspot.com/2022/12/map-to-struct-and-struct-to-map-golang.html
 
 ## TL;DR
 
-- `goccy/go-json` the fastest on all use case, but if you need to store integer more than the JSON standard (2^53), then  `vmihailenco/msgpack/v5` on average is the fastest and best for map to struct use case. `mitchellh/mapstructure` the best for struct to map use case, and `shamaton/msgpack/v2` the best for struct to struct use case.
+- `goccy/go-json` the fastest on all use case, but if you need to store integer more than the JSON standard (2^53), then  `vmihailenco/msgpack/v5` on average is the fastest and best for map to struct use case. `mitchellh/mapstructure` the best for struct to map/map use case.
 
 ## How to run?
 
