@@ -53,9 +53,7 @@ go mod tidy
 go test .
 ```
 
-## Last Result?
-
-best of N runs
+## Last Result? Go 1.20
 
 ```bash
 go test -benchmem -benchtime=3s -bench=. 
@@ -63,6 +61,96 @@ goos: linux
 goarch: amd64
 pkg: ser_deser 
 
+                                   map to struct    total ns/op   B/op allocs/op
+             M2S_GoccyGoJson_MarshalUnmarshal-32  6661932   517     80   3
+          M2S_JsonIteratorGo_MarshalUnmarshal-32  4892611   724    196   8
+     M2S_VmihailencoMspackV5_MarhsalUnmarshal-32  4572597   741    188   5
+           M2S_FxamackerCbor_MarshalUnmarshal-32  4418558   799    120   8
+               M2S_SurrealdbCork_EncodeDecode-32  3080282  1080   1217   6
+        M2S_GopkgInMgoV2Bson_MarshalUnmarshal-32  3227905  1092    232  13
+       M2S_ShamatonMsgpackV2_MarshalUnmarshal-32  3062677  1161    956  15
+             M2S_MitchellhMapstructure_Decode-32  2487428  1395    720  18
+         M2S_MongoDriverBson_MarshalUnmarshal-32  2477983  1459    414  14
+           M2S_KokizzuJson5b_MarshalUnmarshal-32  1987240  1711    632  16
+            M2S_EncodingJson_MarshalUnmarshal-32  2056944  1780    600  16
+             M2S_EtNikBinngo_MarshalUnmarshal-32  1985595  1857    425  39
+           M2S_PquernaFfjson_MarshalUnmarshal-32  1739968  1986    609  16
+          M2S_UngorjiGocodec_BincEncodeDecode-32  1401453  2582   4340  23
+          M2S_UngorjiGoCodec_CborEncodeDecode-32  1304828  2636   4340  23
+       M2S_PelletierGoTomlV2_MarshalUnmarshal-32  1284037  2787   1600  27
+        M2S_UngorjiGocodec_SimpleEncodeDecode-32  1295926  2810   4340  23
+          M2S_UngorjiGocodec_JsonEncodeDecode-32  1000000  3028   4956  25
+      M2S_IchibanTnetstrings_MarshalUnmarshal-32   749947  5056   9329  48
+           M2S_BurntSushiToml_EncodeUnmarshal-32   425335  8065   7958  71
+          M2S_HjsonHjsonGoV4_MarshalUnmarshal-32   355784 10870   3936  78
+           M2S_GopkgInYamlV3_MarshalUnmarshal-32   271190 13524  14112  80
+        M2S_DONUTSLz4Msgpack_MarshalUnmarshal-32   240619 15498   1264  16
+             M2S_GoccyGoYaml_MarshalUnmarshal-32   214776 16192   7821 214
+              M2S_GhodssYaml_MarshalUnmarshal-32   156412 23347  21378 161
+              M2S_NaoinaToml_MarshalUnmarshal-32    57607 58331 398544  77
+
+                                   struct to map    total ns/op   B/op allocs/op
+             S2M_MitchellhMapstructure_Decode-32  5055402   716    536  12
+             S2M_GoccyGoJson_MarshalUnmarshal-32  4660224   747    522  12
+          S2M_JsonIteratorGo_MarshalUnmarshal-32  4283262   835    505  14
+     S2M_VmihailencoMspackV5_MarhsalUnmarshal-32  4009863   908    607  12
+           S2M_FxamackerCbor_MarshalUnmarshal-32  3562352  1023    452  11
+       S2M_ShamatonMsgpackV2_MarshalUnmarshal-32  3180010  1089    556  15
+        S2M_GopkgInMgoV2Bson_MarshalUnmarshal-32  3047396  1145    528  15
+               S2M_SurrealdbCork_EncodeDecode-32  2976328  1196   1611  12
+            S2M_EncodingJson_MarshalUnmarshal-32  1914165  1782    688  18
+           S2M_PquernaFfjson_MarshalUnmarshal-32  1911950  1845    697  18
+             S2M_EtNikBinngo_MarshalUnmarshal-32  1948802  1859    768  45
+           S2M_KokizzuJson5b_MarshalUnmarshal-32  1888774  1884    960  20
+         S2M_MongoDriverBson_MarshalUnmarshal-32  1857649  1995    759  18
+       S2M_PelletierGoTomlV2_MarshalUnmarshal-32  1244012  2864   1800  31
+          S2M_UngorjiGocodec_BincEncodeDecode-32  1000000  3234   4888  34
+          S2M_UngorjiGoCodec_CborEncodeDecode-32   989671  3358   4888  34
+        S2M_UngorjiGocodec_SimpleEncodeDecode-32  1000000  3400   4888  34
+          S2M_UngorjiGocodec_JsonEncodeDecode-32   912512  3639   5504  36
+      S2M_IchibanTnetstrings_MarshalUnmarshal-32   776796  4744   9561  46
+           S2M_BurntSushiToml_EncodeUnmarshal-32   447216  8538   8231  73
+          S2M_HjsonHjsonGoV4_MarshalUnmarshal-32   389476  9416   3868  66
+           S2M_GopkgInYamlV3_MarshalUnmarshal-32   315939 13338  14400  81
+        S2M_DONUTSLz4Msgpack_MarshalUnmarshal-32   242330 14298    744  16
+             S2M_GoccyGoYaml_MarshalUnmarshal-32   230042 14919   7580 202
+              S2M_GhodssYaml_MarshalUnmarshal-32   151023 22682  21441 161
+              S2M_NaoinaToml_MarshalUnmarshal-32    60916 52047 398112  80
+
+                                struct to struct    total ns/op   B/op allocs/op
+             S2S_MitchellhMapstructure_Decode-32 17987224   181    136   4
+             S2S_GoccyGoJson_MarshalUnmarshal-32 12046497   317    112   4
+       S2S_ShamatonMsgpackV2_MarshalUnmarshal-32  7897488   458    148   6
+          S2S_JsonIteratorGo_MarshalUnmarshal-32  7853592   494     92   6
+           S2S_FxamackerCbor_MarshalUnmarshal-32  7038808   511     80   5
+        S2S_GopkgInMgoV2Bson_MarshalUnmarshal-32  5105343   715    144   9
+     S2S_VmihailencoMspackV5_MarhsalUnmarshal-32  4549700   818    213   6
+         S2S_MongoDriverBson_MarshalUnmarshal-32  3560946  1019    321   8
+            S2S_EncodingJson_MarshalUnmarshal-32  2731051  1313    304   9
+           S2S_PquernaFfjson_MarshalUnmarshal-32  2734357  1330    304   9
+           S2S_KokizzuJson5b_MarshalUnmarshal-32  2594728  1343    504   9
+               S2S_SurrealdbCork_EncodeDecode-32  2555745  1397   1241   7
+             S2S_EtNikBinngo_MarshalUnmarshal-32  1995468  1840    400  41
+       S2S_PelletierGoTomlV2_MarshalUnmarshal-32  1460683  2459   1440  23
+        S2S_UngorjiGocodec_SimpleEncodeDecode-32  1205648  2919   4364  24
+          S2S_UngorjiGoCodec_CborEncodeDecode-32  1290734  2920   4364  24
+          S2S_UngorjiGocodec_BincEncodeDecode-32  1207327  3007   4364  24
+          S2S_UngorjiGocodec_JsonEncodeDecode-32  1000000  3223   4980  26
+      S2S_IchibanTnetstrings_MarshalUnmarshal-32   722493  4950   9289  47
+           S2S_BurntSushiToml_EncodeUnmarshal-32   398366  8458   7918  72
+          S2S_HjsonHjsonGoV4_MarshalUnmarshal-32   304369 11189   4578  79
+        S2S_DONUTSLz4Msgpack_MarshalUnmarshal-32   282505 12215    237   7
+           S2S_GopkgInYamlV3_MarshalUnmarshal-32   279332 12541  14016  76
+             S2S_GoccyGoYaml_MarshalUnmarshal-32   211952 15542   7982 208
+              S2S_GhodssYaml_MarshalUnmarshal-32   160660 23148  21073 154
+              S2S_NaoinaToml_MarshalUnmarshal-32    64468 59672 399065  83
+```
+
+## Last Result? Go 1.19
+
+best of N runs
+
+```bash
                                    map to struct    total ns/op   B/op allocs/op
              M2S_GoccyGoJson_MarshalUnmarshal-32  6661932   517     80   3
           M2S_JsonIteratorGo_MarshalUnmarshal-32  4892611   724    196   8
