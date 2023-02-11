@@ -192,6 +192,7 @@ Yes
 - encoding/asn1
 - encoding/gob
 - encoding/xml
+- github.com/sugawarayuuta/sonnet (only decoder)
 
 ## TODO
 
