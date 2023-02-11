@@ -27,13 +27,14 @@ https://kokizzu.blogspot.com/2022/12/map-to-struct-and-struct-to-map-golang.html
 - github.com/ichiban/tnetstrings
 - github.com/bytedance/sonic *
 - github.com/segmentio/encoding/json *
+- github.com/go-json-experiment/json *
 
 * = not safe for >2^53
 
 ## TL;DR
 
-- `goccy/go-json` is the average fastest on all use case (rank 1-2-2), but if you need to store integer more than the JSON standard (2^53), then  `vmihailenco/msgpack/v5` on average is the fastest and best for map to struct use case (rank 1-2-5 excluding all json). `mitchellh/mapstructure` the best for struct to struct/map use case (rank 5-1-1 excluding all json).
-- beware that some library not truly compatible with stdlib (encoding/json) even if they are claim to be.
+- `goccy/go-json` is the average fastest on all use case (rank 1-2-2), but if you need to store integer more than the JSON standard number/double (2^53), then  `vmihailenco/msgpack/v5` on average is the fastest and best for map to struct use case (rank 1-2-5 excluding all json). `mitchellh/mapstructure` the best for struct to struct/map use case (rank 5-1-1 excluding all json).
+- beware that some library not having same behavior as stdlib (`encoding/json`) even if they are claim to be (`goccy/go-json` is one that I found compatible, while `jsoniter` and easyjson` [didn't](//github.com/kokizzu/gotro/tree/master/W2)).
 - These are the list of encoding that can serialize-deserialize everything properly:
   - vmihailenco/msgpack/v5
   - fxamacker/cbor/v2
@@ -82,12 +83,13 @@ best of N runs
           M2S_JsonIteratorGo_MarshalUnmarshal-32  4892611   724    196   8
      M2S_VmihailencoMspackV5_MarhsalUnmarshal-32  4572597   741    188   5
            M2S_FxamackerCbor_MarshalUnmarshal-32  4418558   799    120   8
-   M2S_SegmentioEncodingJson_MarshalUnmarshal-32  4324866   892     60   3
+   M2S_SegmentioEncodingJson_MarshalUnmarshal-32  3559434   858     60   3
         M2S_GopkgInMgoV2Bson_MarshalUnmarshal-32  3288061   971    232  13
                M2S_SurrealdbCork_EncodeDecode-32  3080282  1080   1217   6
        M2S_ShamatonMsgpackV2_MarshalUnmarshal-32  3062677  1161    956  15
              M2S_MitchellhMapstructure_Decode-32  2487428  1395    720  18
          M2S_MongoDriverBson_MarshalUnmarshal-32  2477983  1459    414  14
+    M2S_GoJsonExperimentJson_MarshalUnmarshal-32  2041227  1637    128   8
            M2S_KokizzuJson5b_MarshalUnmarshal-32  1987240  1711    632  16
             M2S_EncodingJson_MarshalUnmarshal-32  2056944  1780    600  16
              M2S_EtNikBinngo_MarshalUnmarshal-32  1985595  1857    425  39
@@ -117,6 +119,7 @@ best of N runs
        S2M_ShamatonMsgpackV2_MarshalUnmarshal-32  3180010  1089    556  15
         S2M_GopkgInMgoV2Bson_MarshalUnmarshal-32  3047396  1145    528  15
                S2M_SurrealdbCork_EncodeDecode-32  2976328  1196   1611  12
+    S2M_GoJsonExperimentJson_MarshalUnmarshal-32  2049212  1602    482  10
             S2M_EncodingJson_MarshalUnmarshal-32  1914165  1782    688  18
            S2M_PquernaFfjson_MarshalUnmarshal-32  1911950  1845    697  18
              S2M_EtNikBinngo_MarshalUnmarshal-32  1948802  1859    768  45
@@ -147,7 +150,8 @@ best of N runs
    S2S_SegmentioEncodingJson_MarshalUnmarshal-32  4891458   763     84   4
      S2S_VmihailencoMspackV5_MarhsalUnmarshal-32  4549700   818    213   6
          S2S_MongoDriverBson_MarshalUnmarshal-32  3560946  1019    321   8
-            S2S_EncodingJson_MarshalUnmarshal-32  2731051  1313    304   9
+    S2S_GoJsonExperimentJson_MarshalUnmarshal-32  3451814  1026    104   4
+            S2S_EncodingJson_MarshalUnmarshal-32  2679778  1127    304   9
            S2S_PquernaFfjson_MarshalUnmarshal-32  2734357  1330    304   9
            S2S_KokizzuJson5b_MarshalUnmarshal-32  2594728  1343    504   9
                S2S_SurrealdbCork_EncodeDecode-32  2555745  1397   1241   7

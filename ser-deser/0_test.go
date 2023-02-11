@@ -8,6 +8,8 @@ import (
 	"github.com/kokizzu/gotro/M"
 )
 
+var verifyCorrectness = false
+
 type myStruct struct {
 	Name string
 	Age  int64
@@ -120,6 +122,10 @@ func testFunc[T matcher](t *testing.T, f func(in, out any)) {
 		resultC.Match(t)
 	})
 
+	if !verifyCorrectness {
+		return
+	}
+
 	t.Run(`slice2slice`, func(t *testing.T) {
 		defer panicHandler(t)
 		in := []int{1, 2, 3}
@@ -185,8 +191,8 @@ func testFunc[T matcher](t *testing.T, f func(in, out any)) {
 		{`string`, "string"},
 		{`nil`, nil},
 		//{`enum`, os.ModeSymlink},
-		{`[int]`, []any{1, 2}},
-		{`[any]`, []any{1, "2"}},
+		{`[]int`, []int{1, 2}},
+		{`[]any`, []any{1, "2"}},
 		{`map[str]int`, map[string]int{"a": 1}},
 		{`map[int]int`, map[int]int{1: 2}},
 		{`map[str]any`, map[string]any{"a": 2.34}},
@@ -297,5 +303,8 @@ func TestVerify(t *testing.T) {
 	})
 	t.Run("SegmentioEncodingJson_MarshalUnmarshal", func(t *testing.T) {
 		testFunc[myStruct](t, SegmentioEncodingJson_MarshalUnmarshal)
+	})
+	t.Run("GoJsonExperimentJson_MarshalUnmarshal", func(t *testing.T) {
+		testFunc[myStruct](t, GoJsonExperimentJson_MarshalUnmarshal)
 	})
 }

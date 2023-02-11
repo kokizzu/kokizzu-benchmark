@@ -9,6 +9,7 @@ require (
 	github.com/et-nik/binngo v0.2.4
 	github.com/fxamacker/cbor/v2 v2.4.0
 	github.com/ghodss/yaml v1.0.0
+	github.com/go-json-experiment/json v0.0.0-20221028162351-3fecd76f5acd
 	github.com/goccy/go-json v0.10.0
 	github.com/goccy/go-yaml v1.9.5
 	github.com/hjson/hjson-go/v4 v4.3.0

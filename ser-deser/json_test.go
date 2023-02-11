@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/bytedance/sonic"
+	expjson "github.com/go-json-experiment/json"
 	gojson "github.com/goccy/go-json"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/kokizzu/json5b/encoding/json5b"
@@ -201,5 +202,33 @@ func Benchmark_S2S_SegmentioEncodingJson_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := myStruct{}
 		SegmentioEncodingJson_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+// github.com/go-json-experiment/json
+
+func GoJsonExperimentJson_MarshalUnmarshal(in, out any) {
+	b, _ := expjson.Marshal(in)
+	_ = expjson.Unmarshal(b, out)
+}
+
+func Benchmark_M2S_GoJsonExperimentJson_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		GoJsonExperimentJson_MarshalUnmarshal(myMap1, &resultA)
+	}
+}
+
+func Benchmark_S2M_GoJsonExperimentJson_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := map[string]any{}
+		GoJsonExperimentJson_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+func Benchmark_S2S_GoJsonExperimentJson_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		GoJsonExperimentJson_MarshalUnmarshal(myRow1, &resultA)
 	}
 }
