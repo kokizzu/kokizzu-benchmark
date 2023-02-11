@@ -43,14 +43,11 @@ https://kokizzu.blogspot.com/2022/12/map-to-struct-and-struct-to-map-golang.html
   - ungorji/go/codec/binc
   - ungorji/go/codec/simple
   - shamanon/msgpack/v2
-  - mongo-driver/bson
   - burnt-sushi/toml
   - pelletier/go-toml/v2
   - mitchellh/mapstructure
-  - naoina/toml
   - DONUTS/lz4msgpack
   - surreald/cork
-  - ichiban/tnetstrings
 - only mapstructure can serialize-deserialize enum and anonymous struct properly
 
 ## How to run?

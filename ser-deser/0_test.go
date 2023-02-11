@@ -90,6 +90,15 @@ type matcher interface {
 	Match(t *testing.T)
 }
 
+func panicHandler(t *testing.T) {
+	t.Helper()
+
+	err := recover()
+	if err != nil {
+		t.Errorf("expected no panic, got %v", err)
+	}
+}
+
 func testFunc[T matcher](t *testing.T, f func(in, out any)) {
 	t.Helper()
 
@@ -109,6 +118,26 @@ func testFunc[T matcher](t *testing.T, f func(in, out any)) {
 		var resultC T
 		f(resultA, &resultC)
 		resultC.Match(t)
+	})
+
+	t.Run(`slice2slice`, func(t *testing.T) {
+		defer panicHandler(t)
+		in := []int{1, 2, 3}
+		out := []int{}
+		f(in, &out)
+		if fmt.Sprint(in) != fmt.Sprint(out) {
+			t.Errorf(`expected %v got %v`, in, out)
+		}
+	})
+
+	t.Run(`slice2anySlice`, func(t *testing.T) {
+		defer panicHandler(t)
+		in := []int{1, 2, 3}
+		out := []any{}
+		f(in, &out)
+		if fmt.Sprint(in) != fmt.Sprint(out) {
+			t.Errorf(`expected %v got %v`, in, out)
+		}
 	})
 
 	// verify correctness of int64 values
@@ -169,12 +198,7 @@ func testFunc[T matcher](t *testing.T, f func(in, out any)) {
 	// verify correctness of MaxUint64
 	for _, tc := range tcs2 {
 		t.Run(tc.name, func(t *testing.T) {
-			defer func() {
-				err := recover()
-				if err != nil {
-					fmt.Errorf("expected no panic, got %v", err)
-				}
-			}()
+			defer panicHandler(t)
 			myMap2 := map[string]any{
 				`age`: tc.val,
 			}
