@@ -32,8 +32,26 @@ https://kokizzu.blogspot.com/2022/12/map-to-struct-and-struct-to-map-golang.html
 
 ## TL;DR
 
-- `goccy/go-json` the fastest on all use case, but if you need to store integer more than the JSON standard (2^53), then  `vmihailenco/msgpack/v5` on average is the fastest and best for map to struct use case. `mitchellh/mapstructure` the best for struct to map/map use case.
+- `goccy/go-json` is the average fastest on all use case (rank 1-2-2), but if you need to store integer more than the JSON standard (2^53), then  `vmihailenco/msgpack/v5` on average is the fastest and best for map to struct use case (rank 1-2-5 excluding all json). `mitchellh/mapstructure` the best for struct to struct/map use case (rank 5-1-1 excluding all json).
 - beware that some library not truly compatible with stdlib (encoding/json) even if they are claim to be.
+- These are the list of encoding that can serialize-deserialize everything properly:
+  - vmihailenco/msgpack/v5
+  - fxamacker/cbor/v2
+  - goccyy/go-yaml
+  - gopkg.in/yaml.v3
+  - ungorji/go/codec/cbor
+  - ungorji/go/codec/binc
+  - ungorji/go/codec/simple
+  - shamanon/msgpack/v2
+  - mongo-driver/bson
+  - burnt-sushi/toml
+  - pelletier/go-toml/v2
+  - mitchellh/mapstructure
+  - naoina/toml
+  - DONUTS/lz4msgpack
+  - surreald/cork
+  - ichiban/tnetstrings
+- only mapstructure can serialize-deserialize enum and anonymous struct properly
 
 ## How to run?
 

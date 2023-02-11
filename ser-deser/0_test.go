@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"math"
 	"testing"
 
 	"github.com/kokizzu/gotro/M"
@@ -89,17 +91,102 @@ type matcher interface {
 }
 
 func testFunc[T matcher](t *testing.T, f func(in, out any)) {
+	t.Helper()
+
 	var resultA T
-	f(myMap1, &resultA)
-	resultA.Match(t)
+	t.Run("map2struct", func(t *testing.T) {
+		f(myMap1, &resultA)
+		resultA.Match(t)
+	})
 
-	resultB := map[string]any{}
-	f(resultA, &resultB)
-	mapMatch(t, resultB)
+	t.Run("struct2map", func(t *testing.T) {
+		resultB := map[string]any{}
+		f(resultA, &resultB)
+		mapMatch(t, resultB)
+	})
 
-	var resultC T
-	f(resultA, &resultC)
-	resultC.Match(t)
+	t.Run("struct2struct", func(t *testing.T) {
+		var resultC T
+		f(resultA, &resultC)
+		resultC.Match(t)
+	})
+
+	// verify correctness of int64 values
+	tcs := []struct {
+		name string
+		val  int64
+	}{
+		{`MaxInt64`, math.MaxInt64},
+		{`MinInt64`, math.MinInt64},
+		{`MaxInt64-1`, math.MaxInt64 - 1},
+		{`MinInt64+1`, math.MinInt64 + 1},
+		{"2^53+1", 1<<53 + 1},
+		{"2^53", 1 << 53},
+		{"2^53-1", 1<<53 - 1},
+		{"-2^53+1", -1<<53 + 1},
+		{"-2^53", -1 << 53},
+		{"-2^53-1", -1<<53 - 1},
+	}
+	for _, tc := range tcs {
+		t.Run(tc.name, func(t *testing.T) {
+			resultD := M.SX{}
+			myRow2 := myStruct{
+				Age: tc.val,
+			}
+			f(myRow2, &resultD)
+			if !(resultD.GetInt(`age`) == tc.val || resultD.GetInt(`Age`) == tc.val) {
+				t.Errorf(`expected %v got %v`, tc.val, resultD.GetInt(`age`))
+			}
+		})
+	}
+
+	tcs2 := []struct {
+		name string
+		val  any
+	}{
+		{`MaxUint64`, uint64(math.MaxUint64)},
+		{`MaxUint64-1`, uint64(math.MaxUint64) - 1},
+		{`MaxFloat64`, math.MaxFloat64},
+		{`MaxFloat32`, math.MaxFloat32},
+		{`+Infinity`, math.Inf(1)},
+		{`-Infinity`, math.Inf(-1)},
+		{`NaN`, math.NaN()},
+		{`true`, true},
+		{`false`, false},
+		{`string`, "string"},
+		{`nil`, nil},
+		//{`enum`, os.ModeSymlink},
+		{`[int]`, []any{1, 2}},
+		{`[any]`, []any{1, "2"}},
+		{`map[str]int`, map[string]int{"a": 1}},
+		{`map[int]int`, map[int]int{1: 2}},
+		{`map[str]any`, map[string]any{"a": 2.34}},
+		//{`anon-struct`, struct {
+		//	A int
+		//	B string
+		//}{A: 1, B: "2"}},
+	}
+	// verify correctness of MaxUint64
+	for _, tc := range tcs2 {
+		t.Run(tc.name, func(t *testing.T) {
+			defer func() {
+				err := recover()
+				if err != nil {
+					fmt.Errorf("expected no panic, got %v", err)
+				}
+			}()
+			myMap2 := map[string]any{
+				`age`: tc.val,
+			}
+			myMap3 := M.SX{}
+			f(myMap2, &myMap3)
+			v, ok := myMap3[`age`]
+			if ok && fmt.Sprint(v) != fmt.Sprint(tc.val) {
+				t.Errorf(`expected %v got %v`, tc.val, v)
+			}
+		})
+
+	}
 }
 
 func TestVerify(t *testing.T) {
