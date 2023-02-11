@@ -8,7 +8,7 @@ import (
 	"github.com/kokizzu/gotro/M"
 )
 
-var verifyCorrectness = false
+var verifyCorrectness = true
 
 type myStruct struct {
 	Name string
