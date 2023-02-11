@@ -46,7 +46,7 @@ func main() {
 		if len(line) == 0 {
 			continue
 		}
-		if line == `## Last Result? Go 1.19` {
+		if line == `## Last Result? Go 1.18` {
 			break
 		}
 		cells := strings.Fields(line)

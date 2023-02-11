@@ -4,10 +4,12 @@ import (
 	"encoding/json"
 	"testing"
 
+	"github.com/bytedance/sonic"
 	gojson "github.com/goccy/go-json"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/kokizzu/json5b/encoding/json5b"
 	"github.com/pquerna/ffjson/ffjson"
+	segmentio "github.com/segmentio/encoding/json"
 )
 
 // encoding/json
@@ -143,5 +145,61 @@ func Benchmark_S2S_PquernaFfjson_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := myStruct{}
 		PquernaFfjson_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+// github.com/bytedance/sonic
+
+func BytedanceSonic_MarshalUnmarshal(in, out any) {
+	b, _ := sonic.Marshal(in)
+	_ = sonic.Unmarshal(b, out)
+}
+
+func Benchmark_M2S_BytedanceSonic_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		BytedanceSonic_MarshalUnmarshal(myMap1, &resultA)
+	}
+}
+
+func Benchmark_S2M_BytedanceSonic_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := map[string]any{}
+		BytedanceSonic_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+func Benchmark_S2S_BytedanceSonic_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		BytedanceSonic_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+// github.com/segmentio/encoding/json
+
+func SegmentioEncodingJson_MarshalUnmarshal(in, out any) {
+	b, _ := segmentio.Marshal(in)
+	_ = segmentio.Unmarshal(b, out)
+}
+
+func Benchmark_M2S_SegmentioEncodingJson_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		SegmentioEncodingJson_MarshalUnmarshal(myMap1, &resultA)
+	}
+}
+
+func Benchmark_S2M_SegmentioEncodingJson_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := map[string]any{}
+		SegmentioEncodingJson_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+func Benchmark_S2S_SegmentioEncodingJson_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		SegmentioEncodingJson_MarshalUnmarshal(myRow1, &resultA)
 	}
 }

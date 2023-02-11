@@ -181,4 +181,10 @@ func TestVerify(t *testing.T) {
 	t.Run("GopkgInMgoV2Bson_MarshalUnmarshal", func(t *testing.T) {
 		testFunc[myStructBson](t, GopkgInMgoV2Bson_MarshalUnmarshal)
 	})
+	t.Run("BytedanceSonic_MarshalUnmarshal", func(t *testing.T) {
+		testFunc[myStruct](t, BytedanceSonic_MarshalUnmarshal)
+	})
+	t.Run("SegmentioEncodingJson_MarshalUnmarshal", func(t *testing.T) {
+		testFunc[myStruct](t, SegmentioEncodingJson_MarshalUnmarshal)
+	})
 }
