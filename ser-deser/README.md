@@ -210,6 +210,7 @@ Yes
 - encoding/gob
 - encoding/xml
 - github.com/sugawarayuuta/sonnet (only decoder)
+- muzzammil.xyz/jsonc (only decoder)
 
 ## TODO
 
