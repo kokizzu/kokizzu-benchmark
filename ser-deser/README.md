@@ -212,6 +212,7 @@ Yes
 - github.com/sugawarayuuta/sonnet (only decoder)
 - muzzammil.xyz/jsonc (only decoder)
 - github.com/wI2L/jettison (only encoder)
+- github.com/minio/simdjson-go (need manual convert on each structure)
 
 ## TODO
 
