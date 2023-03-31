@@ -56,7 +56,7 @@ func main() {
 		total += get_first_digit(v)
 		verify += len(k)
 		count += 1
-		return true
+		return false
 	})
 	fmt.Println(total, verify, count)
 }
