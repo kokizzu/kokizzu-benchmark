@@ -211,6 +211,7 @@ Yes
 - encoding/xml
 - github.com/sugawarayuuta/sonnet (only decoder)
 - muzzammil.xyz/jsonc (only decoder)
+- github.com/wI2L/jettison (only encoder)
 
 ## TODO
 
