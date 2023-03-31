@@ -37,6 +37,7 @@ func set_or_inc(m *hashmap.Map[string, float64], key string, set, inc int, ctr *
 }
 func main() {
 	m := hashmap.New[string, float64]()
+	m.Grow(MAX_DATA)
 	dup1, dup2, dup3 := 0, 0, 0
 	for z := MAX_DATA; z > 0; z-- {
 		val2 := MAX_DATA - z
