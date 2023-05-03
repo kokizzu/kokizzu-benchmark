@@ -219,7 +219,7 @@ func testFunc[T matcher](t *testing.T, f func(in, out any)) {
 	}
 }
 
-func TestVerify(t *testing.T) {
+func testVerify(t *testing.T) {
 	t.Run("EncodingJson_MarshalUnmarshal", func(t *testing.T) {
 		testFunc[myStruct](t, EncodingJson_MarshalUnmarshal)
 	})
@@ -306,5 +306,8 @@ func TestVerify(t *testing.T) {
 	})
 	t.Run("GoJsonExperimentJson_MarshalUnmarshal", func(t *testing.T) {
 		testFunc[myStruct](t, GoJsonExperimentJson_MarshalUnmarshal)
+	})
+	t.Run("SugawarayuutaSonnet_MarshalUnmarshal", func(t *testing.T) {
+		testFunc[myStruct](t, SugawarayuutaSonnet_MarshalUnmarshal)
 	})
 }

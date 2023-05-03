@@ -11,6 +11,7 @@ import (
 	"github.com/kokizzu/json5b/encoding/json5b"
 	"github.com/pquerna/ffjson/ffjson"
 	segmentio "github.com/segmentio/encoding/json"
+	"github.com/sugawarayuuta/sonnet"
 )
 
 // encoding/json
@@ -230,5 +231,33 @@ func Benchmark_S2S_GoJsonExperimentJson_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := myStruct{}
 		GoJsonExperimentJson_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+// github.com/sugawarayuuta/sonnet
+
+func SugawarayuutaSonnet_MarshalUnmarshal(in, out any) {
+	b, _ := sonnet.Marshal(in)
+	_ = sonnet.Unmarshal(b, out)
+}
+
+func Benchmark_M2S_SugawarayuutaSonnet_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		SugawarayuutaSonnet_MarshalUnmarshal(myMap1, &resultA)
+	}
+}
+
+func Benchmark_S2M_SugawarayuutaSonnet_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := map[string]any{}
+		SugawarayuutaSonnet_MarshalUnmarshal(myRow1, &resultA)
+	}
+}
+
+func Benchmark_S2S_SugawarayuutaSonnet_MarshalUnmarshal(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		resultA := myStruct{}
+		SugawarayuutaSonnet_MarshalUnmarshal(myRow1, &resultA)
 	}
 }
