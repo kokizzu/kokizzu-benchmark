@@ -1,7 +1,7 @@
 
 # Simple Echo WebSocket Benchmark
 
-This is a simple echo websocket benchmark, bun (uwebsocket) vs go+nbio. 
+This is a simple echo websocket benchmark, bun/nodejs (uwebsocket) vs go+nbio. 
 
 benchmark plan:
 - 10k connection
