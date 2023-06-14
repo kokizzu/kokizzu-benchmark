@@ -98,7 +98,7 @@ func main() {
 
 					//log.Println("success echo websocket.TextMessage  :", request)
 				}
-				time.Sleep(100 * time.Millisecond)
+				time.Sleep(10 * time.Millisecond)
 			}
 			return nil
 		})
