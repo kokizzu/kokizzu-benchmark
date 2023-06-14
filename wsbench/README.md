@@ -5,7 +5,7 @@ This is a simple echo websocket benchmark, bun/nodejs (uwebsocket) vs go+nbio.
 
 benchmark plan:
 - 10k connection
-- echo something every 100ms/10ms
+- echo something every 10ms
 - print the rps
 
 ## setup
@@ -32,108 +32,54 @@ go run go-gorilla-client.go localhost:8888
 ```
 go 1.20.5 nbio 1.3.16
 
-sleep 100ms
+rps: 253713.94 avg/max latency = 12.56ms/257.27ms elapsed 1.2
+rps: 365052.46 avg/max latency = 13.24ms/257.27ms elapsed 2.2
+rps: 403104.54 avg/max latency = 13.67ms/257.27ms elapsed 3.1
+rps: 423652.09 avg/max latency = 13.70ms/257.27ms elapsed 4.2
+rps: 437158.96 avg/max latency = 13.73ms/257.27ms elapsed 5.1
+rps: 447771.98 avg/max latency = 13.68ms/257.27ms elapsed 6.1
+rps: 456172.38 avg/max latency = 13.66ms/257.27ms elapsed 7.2
+rps: 461172.48 avg/max latency = 13.61ms/257.27ms elapsed 8.2
+rps: 465496.54 avg/max latency = 13.58ms/257.27ms elapsed 9.1
+rps: 469874.77 avg/max latency = 13.55ms/257.27ms elapsed 10.2
 
-rps: 43755.32 1.2
-rps: 65137.37 2.2
-rps: 75656.95 3.2
-rps: 81256.23 4.2
-rps: 84406.06 5.2
-rps: 86849.70 6.2
-rps: 88439.03 7.2
-rps: 89629.13 8.2
-rps: 90582.95 9.2
-rps: 91350.43 10.2
-
-97-107 MB RAM
-4.5-4.9 core usage
-
-sleep 10ms
-
-rps: 147746.60 1.1
-rps: 195998.29 2.1
-rps: 221432.84 3.1
-rps: 233467.68 4.1
-rps: 239651.33 5.1
-rps: 245445.87 6.1
-rps: 249666.64 7.1
-rps: 252590.65 8.1
-rps: 255521.37 9.1
-rps: 257248.18 10.1
-
-134 MB RAM
+134 (116-163) MB RAM
 14-15 core usage
 
 ---
 
 bun 0.6.9
 
-sleep 100ms
+rps: 91396.93 avg/max latency = 5.09ms/366.15ms elapsed 1.3
+rps: 104604.91 avg/max latency = 12.34ms/366.15ms elapsed 2.2
+rps: 114923.59 avg/max latency = 16.67ms/366.15ms elapsed 3.2
+rps: 117396.76 avg/max latency = 20.56ms/366.15ms elapsed 4.2
+rps: 118688.09 avg/max latency = 25.10ms/366.15ms elapsed 5.2
+rps: 120622.57 avg/max latency = 28.70ms/366.15ms elapsed 6.2
+rps: 121481.34 avg/max latency = 31.56ms/366.15ms elapsed 7.2
+rps: 121616.55 avg/max latency = 34.50ms/366.15ms elapsed 8.2
+rps: 122385.94 avg/max latency = 37.89ms/366.15ms elapsed 9.2
+rps: 123589.91 avg/max latency = 40.67ms/366.15ms elapsed 10.2
 
-rps: 27355.30 1.4
-rps: 39690.17 2.4
-rps: 46120.58 3.4
-rps: 48669.44 4.4
-rps: 51504.18 5.4
-rps: 52886.58 6.4
-rps: 53996.81 7.4
-rps: 54108.43 8.4
-rps: 54448.71 9.4
-rps: 54866.71 10.4
-
-55-58 MB RAM
-1.0 core usage
-
-sleep 10ms
-
-rps: 31479.49 1.1
-rps: 47891.22 2.1
-rps: 53222.24 3.1
-rps: 55420.14 4.1
-rps: 57728.77 5.1
-rps: 59209.17 6.1
-rps: 60032.47 7.1
-rps: 60890.74 8.1
-rps: 61486.55 9.1
-rps: 62047.29 10.1
-
-60 MB RAM
+55 MB RAM
 1.02 core usage
 
 ---
 
 node 18.16.0
 
-sleep 100ms
+rps: 56705.35 avg/max latency = 46.29ms/295.33ms elapsed 1.3
+rps: 78918.92 avg/max latency = 58.86ms/295.33ms elapsed 2.3
+rps: 93022.63 avg/max latency = 65.17ms/295.33ms elapsed 3.3
+rps: 99804.09 avg/max latency = 68.52ms/295.33ms elapsed 4.3
+rps: 104115.35 avg/max latency = 70.17ms/295.33ms elapsed 5.3
+rps: 107737.82 avg/max latency = 70.92ms/295.33ms elapsed 6.3
+rps: 109919.20 avg/max latency = 71.64ms/295.33ms elapsed 7.3
+rps: 111882.40 avg/max latency = 72.00ms/295.33ms elapsed 8.3
+rps: 113203.59 avg/max latency = 72.46ms/295.33ms elapsed 9.3
+rps: 114449.91 avg/max latency = 72.62ms/295.33ms elapsed 10.3
 
-rps: 27842.13 1.1
-rps: 38155.45 2.1
-rps: 43114.16 3.1
-rps: 45373.05 4.1
-rps: 46915.13 5.1
-rps: 47815.66 6.1
-rps: 48494.43 7.1
-rps: 49013.41 8.1
-rps: 49448.08 9.1
-rps: 49777.81 10.1
-
-55 MB RAM
-1.0 core usage
-
-sleep 10ms
-
-rps: 32614.96 1.2
-rps: 42902.93 2.2
-rps: 48698.52 3.2
-rps: 51757.40 4.2
-rps: 53558.67 5.2
-rps: 54738.47 6.2
-rps: 55784.62 7.2
-rps: 56635.83 8.2
-rps: 57446.48 9.2
-rps: 57733.65 10.2
-
-57 MB RAM
+59 MB RAM
 1.0 core usage
 ```
 

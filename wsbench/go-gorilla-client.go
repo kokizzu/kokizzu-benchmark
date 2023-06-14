@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
+	"github.com/kpango/fastime"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -27,7 +28,9 @@ func main() {
 	u := url.URL{Scheme: "ws", Host: os.Args[1], Path: "/ws"}
 
 	eg := &errgroup.Group{}
-	reqCounter := uint64(0)
+	reqCounter := int64(0)
+	totalLatencyNs := int64(0)
+	maxLatencyNs := int64(0)
 	start := time.Now()
 	for z := 0; z < clientCount; z++ {
 		eg.Go(func() error {
@@ -43,6 +46,7 @@ func main() {
 			for {
 				{
 					i++
+					begin := fastime.Now()
 					request := fmt.Sprintf("hello %v", i)
 					err := c.WriteMessage(websocket.BinaryMessage, []byte(request))
 					if err != nil {
@@ -61,6 +65,17 @@ func main() {
 
 					}
 
+					atomic.AddInt64(&reqCounter, 1)
+					latency := fastime.Since(begin).Nanoseconds()
+					atomic.AddInt64(&totalLatencyNs, latency)
+					for {
+						maxLat := atomic.LoadInt64(&maxLatencyNs)
+						if maxLat >= latency {
+							break
+						}
+						atomic.CompareAndSwapInt64(&maxLatencyNs, maxLat, latency)
+					}
+
 					if string(response) != request {
 						log.Printf("'%v' != '%v'", len(response), len(request))
 						return err
@@ -70,6 +85,8 @@ func main() {
 				}
 
 				{
+					begin := fastime.Now()
+
 					i++
 					request := fmt.Sprintf("hello %v", i)
 					err := c.WriteMessage(websocket.TextMessage, []byte(request))
@@ -89,7 +106,16 @@ func main() {
 
 					}
 
-					atomic.AddUint64(&reqCounter, 1)
+					atomic.AddInt64(&reqCounter, 1)
+					latency := fastime.Since(begin).Nanoseconds()
+					atomic.AddInt64(&totalLatencyNs, latency)
+					for {
+						maxLat := atomic.LoadInt64(&maxLatencyNs)
+						if maxLat >= latency {
+							break
+						}
+						atomic.CompareAndSwapInt64(&maxLatencyNs, maxLat, latency)
+					}
 
 					if string(response) != request {
 						log.Printf("'%v' != '%v'", len(response), len(request))
@@ -98,7 +124,7 @@ func main() {
 
 					//log.Println("success echo websocket.TextMessage  :", request)
 				}
-				time.Sleep(10 * time.Millisecond)
+				time.Sleep(100 * time.Millisecond)
 			}
 			return nil
 		})
@@ -110,8 +136,11 @@ func main() {
 			select {
 			case <-ticker.C:
 				elapsedSec := time.Since(start).Seconds()
-				rps := float64(atomic.LoadUint64(&reqCounter)) / elapsedSec
-				fmt.Printf("\rrps: %.2f %.1f\n", rps, elapsedSec)
+				totalReq := float64(atomic.LoadInt64(&reqCounter))
+				avgLatency := float64(atomic.LoadInt64(&totalLatencyNs)) / totalReq / 1_000_000
+				maxLatency := float64(atomic.LoadInt64(&maxLatencyNs)) / 1_000_000
+				rps := totalReq / elapsedSec
+				fmt.Printf("\rrps: %.2f avg/max latency = %.2fms/%.2fms elapsed %.1fs\n", rps, avgLatency, maxLatency, elapsedSec)
 			}
 		}
 		return nil

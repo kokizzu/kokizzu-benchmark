@@ -4,6 +4,7 @@ go 1.20
 
 require (
 	github.com/gorilla/websocket v1.5.0
+	github.com/kpango/fastime v1.1.9
 	github.com/lesismal/nbio v1.3.16
 	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4
 )

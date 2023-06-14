@@ -1,5 +1,7 @@
 github.com/gorilla/websocket v1.5.0 h1:PPwGk2jz7EePpoHN/+ClbZu8SPxiqlu12wZP/3sWmnc=
 github.com/gorilla/websocket v1.5.0/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
+github.com/kpango/fastime v1.1.9 h1:xVQHcqyPt5M69DyFH7g1EPRns1YQNap9d5eLhl/Jy84=
+github.com/kpango/fastime v1.1.9/go.mod h1:vyD7FnUn08zxY4b/QFBZVG+9EWMYsNl+QF0uE46urD4=
 github.com/lesismal/llib v1.1.12 h1:KJFB8bL02V+QGIvILEw/w7s6bKj9Ps9Px97MZP2EOk0=
 github.com/lesismal/llib v1.1.12/go.mod h1:70tFXXe7P1FZ02AU9l8LgSOK7d7sRrpnkUr3rd3gKSg=
 github.com/lesismal/nbio v1.3.16 h1:QO+bNDcLnBlh7cS9LkHGcRH/Gqv1uIDY3IToiqVP6cE=
