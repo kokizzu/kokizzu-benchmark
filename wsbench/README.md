@@ -18,7 +18,9 @@ go run go-nbio-client.go # benchmark code using gorilla
 
 curl -fsSL https://bun.sh/install | bash # for macOS, Linux, and WSL
 bun bun-ws.js
-#bun install uNetworking/uWebSockets.js#v20.27.0
+
+bun install uNetworking/uWebSockets.js#v20.27.0
+node node-uws.js
 ```
 
 ## result
@@ -62,7 +64,19 @@ rps: 54866.71 10.4
 
 node 18.16.0
 
-too slow to resolve and download uwebsocketjs dependencies
+rps: 27842.13 1.1
+rps: 38155.45 2.1
+rps: 43114.16 3.1
+rps: 45373.05 4.1
+rps: 46915.13 5.1
+rps: 47815.66 6.1
+rps: 48494.43 7.1
+rps: 49013.41 8.1
+rps: 49448.08 9.1
+rps: 49777.81 10.1
+
+55 MB RAM
+1.0 core usage
 ```
 
 
