@@ -1,5 +1,5 @@
 
-# Simple Echo WebSocket Benchmar
+# Simple Echo WebSocket Benchmark
 
 This is a simple echo websocket benchmark, bun (uwebsocket) vs go+nbio. 
 
