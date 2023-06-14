@@ -16,7 +16,8 @@ go run go-nbio-server.go
 go run go-nbio-client.go
 
 curl -fsSL https://bun.sh/install | bash # for macOS, Linux, and WSL
-bun install uNetworking/uWebSockets.js#v20.27.0
+bun bun-ws.js
+#bun install uNetworking/uWebSockets.js#v20.27.0
 ```
 
 ## result
