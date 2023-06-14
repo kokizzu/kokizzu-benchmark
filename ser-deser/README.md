@@ -28,7 +28,7 @@ https://kokizzu.blogspot.com/2022/12/map-to-struct-and-struct-to-map-golang.html
 - github.com/bytedance/sonic *
 - github.com/segmentio/encoding/json *
 - github.com/go-json-experiment/json *
-- github.com/sugawarayuuta/sonnet
+- github.com/sugawarayuuta/sonnet *
 
 * = not safe for >2^53
 
