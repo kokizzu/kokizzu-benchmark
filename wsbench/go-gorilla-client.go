@@ -18,7 +18,7 @@ func main() {
 	flag.Parse()
 
 	if len(os.Args) < 2 {
-		fmt.Println("Usage: go run go-nbio-client.go localhost:8888")
+		fmt.Println("Usage: go run go-gorilla-client.go localhost:8888")
 		os.Exit(1)
 	}
 

@@ -11,16 +11,20 @@ benchmark plan:
 ## setup
 
 ```
+# go
 go mod tidy
 go run go-nbio-server.go
 
-go run go-nbio-client.go # benchmark code using gorilla
-
+# bun
 curl -fsSL https://bun.sh/install | bash # for macOS, Linux, and WSL
 bun bun-ws.js
 
+# node
 bun install uNetworking/uWebSockets.js#v20.27.0
 node node-uws.js
+
+# benchmark
+go run go-gorilla-client.go localhost:8888
 ```
 
 ## result
