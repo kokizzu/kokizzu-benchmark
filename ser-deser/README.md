@@ -323,3 +323,4 @@ Yes
 - for libraries that default doesn't have buffer pool, clone benchmark function and add a private `sync.Pool`
 - github.com/kanosaki/flexbuffers
 - github.com/mojura/enkodo
+- github.com/google/go-jsonnet
