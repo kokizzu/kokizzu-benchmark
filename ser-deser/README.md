@@ -324,3 +324,4 @@ Yes
 - github.com/kanosaki/flexbuffers
 - github.com/mojura/enkodo
 - github.com/google/go-jsonnet
+- github.com/hashicorp/hcl/v2
