@@ -35,7 +35,7 @@ https://kokizzu.blogspot.com/2022/12/map-to-struct-and-struct-to-map-golang.html
 ## TL;DR
 
 - `goccy/go-json` is the average fastest on all use case (rank 1-2-2), but if you need to store integer more than the JSON standard number/double (2^53), then  `vmihailenco/msgpack/v5` on average is the fastest and best for map to struct use case (rank 1-2-5 excluding all json). `mitchellh/mapstructure` the best for struct to struct/map use case (rank 5-1-1 excluding all json).
-- beware that some library not having same behavior as stdlib (`encoding/json`) even if they are claim to be (`goccy/go-json` is one that I found compatible, while `jsoniter` and easyjson` [didn't](//github.com/kokizzu/gotro/tree/master/W2)).
+- beware that some library not having same behavior as stdlib (`encoding/json`) even if they are claim to be, `goccy/go-json` is one that I found compatible, while `jsoniter` and easyjson` [did not](//github.com/kokizzu/gotro/tree/master/W2), and all of them mostly not conforming fully to JSON spec (TODO: find out the past article).
 - These are the list of encoding that can serialize-deserialize everything properly (see `verifyCorrectness` for checking which edge case/data type/value they will fail):
   - vmihailenco/msgpack/v5
   - fxamacker/cbor/v2
