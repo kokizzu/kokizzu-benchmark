@@ -12,7 +12,7 @@ require (
 	github.com/graarh/golang-socketio v0.0.0-20170510162725-2c44953b9b5f
 	github.com/lib/pq v1.10.9
 	gitlab.com/kokizzu/gokil v0.0.0-20220525031744-1c3b0201dace
-	google.golang.org/grpc v1.57.0
+	google.golang.org/grpc v1.57.1
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 )
 
