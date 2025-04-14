@@ -11,6 +11,6 @@ require (
 
 require (
 	github.com/lesismal/llib v1.1.12 // indirect
-	golang.org/x/crypto v0.31.0 // indirect
-	golang.org/x/sys v0.28.0 // indirect
+	golang.org/x/crypto v0.35.0 // indirect
+	golang.org/x/sys v0.30.0 // indirect
 )
