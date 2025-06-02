@@ -30,12 +30,10 @@ fn comb_sort(mut a []string) {
 	}
 }
 
-const (
-	n = 10000000
-)
+const n = 10000000
 
 fn main() {
-	mut arr := []string{len: n}
+	mut arr := []string{len: n, cap: n}
 	for z := 0; z < n; z++ {
 		arr[z] = '${n - z}'
 	}
