@@ -1,16 +1,16 @@
 module wsbench
 
-go 1.20
+go 1.25.0
 
 require (
-	github.com/gorilla/websocket v1.5.0
-	github.com/kpango/fastime v1.1.9
-	github.com/lesismal/nbio v1.3.16
-	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4
+	github.com/gorilla/websocket v1.5.3
+	github.com/kpango/fastime v1.1.10
+	github.com/lesismal/nbio v1.6.8
+	golang.org/x/sync v0.20.0
 )
 
 require (
-	github.com/lesismal/llib v1.1.12 // indirect
-	golang.org/x/crypto v0.31.0 // indirect
-	golang.org/x/sys v0.28.0 // indirect
+	github.com/lesismal/llib v1.2.2 // indirect
+	golang.org/x/crypto v0.49.0 // indirect
+	golang.org/x/sys v0.42.0 // indirect
 )
