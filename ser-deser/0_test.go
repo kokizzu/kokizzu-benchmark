@@ -259,8 +259,8 @@ func testVerify(t *testing.T) {
 	t.Run("JsonIteratorGo_MarshalUnmarshal", func(t *testing.T) {
 		testFunc[myStruct](t, JsonIteratorGo_MarshalUnmarshal)
 	})
-	t.Run("ShamatonMsgpackV2_MarshalUnmarshal", func(t *testing.T) {
-		testFunc[myStruct](t, ShamatonMsgpackV2_MarshalUnmarshal)
+	t.Run("ShamatonMsgpackV3_MarshalUnmarshal", func(t *testing.T) {
+		testFunc[myStruct](t, ShamatonMsgpackV3_MarshalUnmarshal)
 	})
 	t.Run("PquernaFfjson_MarshalUnmarshal", func(t *testing.T) {
 		testFunc[myStruct](t, PquernaFfjson_MarshalUnmarshal)
@@ -282,9 +282,6 @@ func testVerify(t *testing.T) {
 	})
 	t.Run("HjsonHjsonGoV4_MarshalUnmarshal", func(t *testing.T) {
 		testFunc[myStruct](t, HjsonHjsonGoV4_MarshalUnmarshal)
-	})
-	t.Run("DONUTSLz4Msgpack_MarshalUnmarshal", func(t *testing.T) {
-		testFunc[myStruct](t, DONUTSLz4Msgpack_MarshalUnmarshal)
 	})
 	t.Run("SurrealdbCork_EncodeDecode", func(t *testing.T) {
 		testFunc[myStruct](t, SurrealdbCork_EncodeDecode)

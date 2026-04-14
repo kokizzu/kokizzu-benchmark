@@ -3,8 +3,7 @@ package main
 import (
 	"testing"
 
-	lzmsgpack "github.com/d-o-n-u-t-s/lz4msgpack"
-	msgpack2 "github.com/shamaton/msgpack/v2"
+	msgpack3 "github.com/shamaton/msgpack/v3"
 	"github.com/surrealdb/cork"
 	msgpack5 "github.com/vmihailenco/msgpack/v5"
 )
@@ -35,31 +34,31 @@ func Benchmark_S2S_VmihailencoMspackV5_MarhsalUnmarshal(b *testing.B) {
 	}
 }
 
-// github.com/shamaton/msgpack/v2
+// github.com/shamaton/msgpack/v3
 
-func ShamatonMsgpackV2_MarshalUnmarshal(in, out any) {
-	b, _ := msgpack2.Marshal(in)
-	_ = msgpack2.Unmarshal(b, out)
+func ShamatonMsgpackV3_MarshalUnmarshal(in, out any) {
+	b, _ := msgpack3.Marshal(in)
+	_ = msgpack3.Unmarshal(b, out)
 }
 
-func Benchmark_M2S_ShamatonMsgpackV2_MarshalUnmarshal(b *testing.B) {
+func Benchmark_M2S_ShamatonMsgpackV3_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := myStruct{}
-		ShamatonMsgpackV2_MarshalUnmarshal(myMap1, &resultA)
+		ShamatonMsgpackV3_MarshalUnmarshal(myMap1, &resultA)
 	}
 }
 
-func Benchmark_S2M_ShamatonMsgpackV2_MarshalUnmarshal(b *testing.B) {
+func Benchmark_S2M_ShamatonMsgpackV3_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := map[string]any{}
-		ShamatonMsgpackV2_MarshalUnmarshal(myRow1, &resultA)
+		ShamatonMsgpackV3_MarshalUnmarshal(myRow1, &resultA)
 	}
 }
 
-func Benchmark_S2S_ShamatonMsgpackV2_MarshalUnmarshal(b *testing.B) {
+func Benchmark_S2S_ShamatonMsgpackV3_MarshalUnmarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		resultA := myStruct{}
-		ShamatonMsgpackV2_MarshalUnmarshal(myRow1, &resultA)
+		ShamatonMsgpackV3_MarshalUnmarshal(myRow1, &resultA)
 	}
 }
 
