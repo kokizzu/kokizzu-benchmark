@@ -12,7 +12,7 @@ require (
 	github.com/go-json-experiment/json v0.0.0-20221028162351-3fecd76f5acd
 	github.com/goccy/go-json v0.10.6
 	github.com/goccy/go-yaml v1.9.5
-	github.com/hjson/hjson-go/v4 v4.3.0
+	github.com/hjson/hjson-go/v4 v4.6.0
 	github.com/ichiban/tnetstrings v0.0.0-20180422064249-a801545262c5
 	github.com/json-iterator/go v1.1.12
 	github.com/kokizzu/gotro v1.6401.1247
@@ -22,7 +22,7 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.6
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7
 	github.com/segmentio/encoding v0.3.6
-	github.com/shamaton/msgpack/v3 v3.1.0
+	github.com/shamaton/msgpack/v3 v3.1.2
 	github.com/sugawarayuuta/sonnet v0.0.0-20230429041906-2875531a6c75
 	github.com/surrealdb/cork v0.0.0-20211208110447-54ccd49930c9
 	github.com/ugorji/go/codec v1.2.7
