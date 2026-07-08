@@ -3,6 +3,7 @@ package main
 import (
 	"testing"
 
+	lzmsgpack "github.com/d-o-n-u-t-s/lz4msgpack"
 	msgpack3 "github.com/shamaton/msgpack/v3"
 	"github.com/surrealdb/cork"
 	msgpack5 "github.com/vmihailenco/msgpack/v5"

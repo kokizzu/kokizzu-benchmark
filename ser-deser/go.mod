@@ -4,8 +4,8 @@ go 1.25.5
 
 require (
 	github.com/BurntSushi/toml v1.2.1
-	github.com/bytedance/sonic v1.7.1
-	github.com/d-o-n-u-t-s/lz4msgpack v1.0.5
+	github.com/bytedance/sonic v1.15.2
+	github.com/d-o-n-u-t-s/lz4msgpack v1.0.6
 	github.com/et-nik/binngo v0.2.4
 	github.com/fxamacker/cbor/v2 v2.4.0
 	github.com/ghodss/yaml v1.0.0
@@ -16,24 +16,26 @@ require (
 	github.com/ichiban/tnetstrings v0.0.0-20180422064249-a801545262c5
 	github.com/json-iterator/go v1.1.12
 	github.com/kokizzu/gotro v1.6401.1247
-	github.com/kokizzu/json5b v0.1.3
+	github.com/kokizzu/json5b v0.1.4
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/naoina/toml v0.1.1
 	github.com/pelletier/go-toml/v2 v2.0.6
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7
 	github.com/segmentio/encoding v0.3.6
 	github.com/shamaton/msgpack/v3 v3.1.2
-	github.com/sugawarayuuta/sonnet v0.0.0-20230429041906-2875531a6c75
+	github.com/sugawarayuuta/sonnet v0.0.0-20231004000330-239c7b6e4ce8
 	github.com/surrealdb/cork v0.0.0-20211208110447-54ccd49930c9
 	github.com/ugorji/go/codec v1.2.7
 	github.com/vmihailenco/msgpack/v5 v5.4.1
-	go.mongodb.org/mongo-driver v1.11.1
+	go.mongodb.org/mongo-driver v1.17.7
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
-	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
+	github.com/bytedance/gopkg v0.1.3 // indirect
+	github.com/bytedance/sonic/loader v0.5.1 // indirect
+	github.com/cloudwego/base64x v0.1.6 // indirect
 	github.com/cstockton/go-conv v0.0.0-20170524002450-66a2b2ba36e1 // indirect
 	github.com/fatih/color v1.19.0 // indirect
 	github.com/jxskiss/base62 v1.1.0 // indirect
@@ -47,18 +49,20 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/naoina/go-stringutil v0.1.0 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
+	github.com/pierrec/lz4/v4 v4.1.26 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/segmentio/asm v1.2.1 // indirect
+	github.com/shamaton/msgpack/v2 v2.0.0 // indirect
 	github.com/surrealdb/bump v0.0.0-20211208102305-88d509230106 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	github.com/zeebo/xxh3 v1.1.0 // indirect
 	golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
-	golang.org/x/crypto v0.49.0 // indirect
+	golang.org/x/crypto v0.51.0 // indirect
 	golang.org/x/exp v0.0.0-20260312153236-7ab1446f8b90 // indirect
-	golang.org/x/sys v0.42.0 // indirect
-	golang.org/x/text v0.35.0 // indirect
+	golang.org/x/sys v0.45.0 // indirect
+	golang.org/x/text v0.37.0 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
