@@ -12,7 +12,7 @@ require (
 	github.com/graarh/golang-socketio v0.0.0-20170510162725-2c44953b9b5f
 	github.com/lib/pq v1.12.3
 	gitlab.com/kokizzu/gokil v0.0.0-20220525031744-1c3b0201dace
-	google.golang.org/grpc v1.79.3
+	google.golang.org/grpc v1.82.1
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 )
 
@@ -53,8 +53,8 @@ require (
 	golang.org/x/sync v0.21.0 // indirect
 	golang.org/x/sys v0.46.0 // indirect
 	golang.org/x/text v0.38.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20251202230838-ff82c1b0f217 // indirect
-	google.golang.org/protobuf v1.36.10 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260414002931-afd174a4e478 // indirect
+	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/redis.v5 v5.2.9 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
