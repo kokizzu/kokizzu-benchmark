@@ -1,6 +1,6 @@
 module kokizzu-benchmark
 
-go 1.25.5
+go 1.26.10
 
 require (
 	github.com/aerospike/aerospike-client-go v4.5.2+incompatible
